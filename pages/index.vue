@@ -1,70 +1,21 @@
-<template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">gracefully-hooked</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+.flex.flex-col.items-center.min-h-screen
+  .flex.flex-col.items-center.w-full
+    .w-full.h-44.bg-blue-light
+    h1.py-7.px-24.-mt-16.text-7xl.bg-white.rounded-full Gracefully Hooked
+
+  .grid.grid-cols-2.auto-cols-max.gap-y-6.gap-x-12.mt-12.w-max.text-xl
+    Button.col-span-2.mx-auto Shop All
+
+    Button Animals
+    Button Hats
+
+    Button Blankets
+    Button Scarves
+
+    Button Clothing
+    Button Socks
+
+    Button.col-span-2 Custom
+    Button.col-span-2 Inspiration
 </template>
-
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({})
-</script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-@apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>

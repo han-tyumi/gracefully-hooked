@@ -28,6 +28,8 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
+    // https://github.com/nuxt-community/stylelint-module
+    '@nuxtjs/stylelint-module',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
