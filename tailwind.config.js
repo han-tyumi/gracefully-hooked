@@ -5,7 +5,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        logo: ['pacifico', 'san-serif'],
+        sans: ['open-sans', 'sans-serif'],
+        logo: ['pacifico', 'sans-serif'],
       },
     },
     colors: {
