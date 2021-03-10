@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * The Typekit service used to deliver this font or fonts for use on websites
+   * is provided by Adobe and is subject to these Terms of Use
+   * http://www.adobe.com/products/eulas/tou_typekit. For font license
+   * information, see the list below.
+   *
+   * pacifico:
+   *   - http://typekit.com/eulas/00000000000000003b9b136e
+   *
+   * © 2009-2020 Adobe Systems Incorporated. All Rights Reserved.
+   *
+   * {"last_published":"2021-03-10 17:28:44 UTC"}
+   */
+  @font-face {
+    font-family: 'pacifico';
+    src: url('../fonts/pacifico.woff2') format('woff2'),
+      url('../fonts/pacifico.woff') format('woff'),
+      url('../fonts/pacifico.otf') format('opentype');
+    font-display: auto;
+    font-style: normal;
+    font-weight: 300;
+  }
+}

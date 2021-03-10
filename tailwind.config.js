@@ -1,9 +1,13 @@
 module.exports = {
-  purge: [],
+  purge: ['./components/**/*.vue', './layouts/**/*.vue', './pages/**/*.vue'],
   darkMode: false, // or 'media' or 'class'
   separator: '_',
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        logo: ['pacifico', 'san-serif'],
+      },
+    },
     colors: {
       turquoise: {
         light: '#defff3',
