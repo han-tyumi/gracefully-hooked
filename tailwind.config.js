@@ -4,6 +4,10 @@ module.exports = {
   separator: '_',
   theme: {
     extend: {
+      backgroundImage: {
+        flowers: "url('~/assets/flowers.svg')",
+      },
+
       fontFamily: {
         sans: ['open-sans', 'sans-serif'],
         logo: ['pacifico', 'sans-serif'],
