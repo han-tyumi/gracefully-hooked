@@ -6,6 +6,11 @@ module.exports = {
     extend: {
       backgroundImage: {
         flowers: "url('~/assets/flowers.svg')",
+        basket: "url('~/assets/basket.svg')",
+      },
+
+      backgroundPosition: {
+        'x-5': '5% 0%',
       },
 
       fontFamily: {
@@ -29,13 +34,16 @@ module.exports = {
       },
       blue: {
         light: '#148cb7',
-        dark: '#0076a5',
+        DEFAULT: '#0076a5',
+        dark: '#0E6E90',
+        darker: '#0F6889',
       },
       brown: {
         light: '#e5b58f',
         dark: '#cea182',
       },
       white: '#fff',
+      black: '#000',
       gray: '#848484',
     },
   },
