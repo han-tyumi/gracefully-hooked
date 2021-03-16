@@ -1,0 +1,31 @@
+# TODO: possibly make this dynamic to match items currently in stock
+categories:
+  clothing:
+    - bralettes
+    - summer tops
+    - sweaters
+    - upcycled
+  accessories:
+    - hats
+    - headbands
+    - scrunchies
+    - scarves
+    - mittens
+    - socks & slippers
+    - bags
+  baby:
+    - booties
+    - hats
+    - clothing
+    - blankets
+    - sets
+  plushies:
+    - animals
+    - characters
+    - dolls
+    - food
+  doll clothes:
+  home:
+    - pillows
+    - blankets
+    - decor

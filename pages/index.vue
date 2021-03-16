@@ -15,22 +15,31 @@
     .grid.grid-cols-2.auto-cols-max.gap-x-4.gap-y-4.mt-4.w-max.text-md.sm_text-lg.md_text-xl.md_mt-12.md_gap-x-12
       NuxtLink.col-span-2.mx-auto(to="/shop"): Button Shop All
 
-      Button Animals
-      Button Hats
+      Button.capitalize(v-for="category in categories", :key="category") {{ category }}
 
-      Button Blankets
-      Button Scarves
-
-      Button Clothing
-      Button Socks
-
-      Button.col-span-2.mx-10 Custom
-      Button.col-span-2.mx-10 Inspiration
+      Button.col-span-2.mx-10.mt-5 Custom
 </template>
 
 <script lang="ts">
+import { contentFunc, IContentDocument } from '@nuxt/content/types/content'
+import { Context } from '@nuxt/types'
 import Vue from 'vue'
+
+interface CategoriesDocument extends IContentDocument {
+  categories: Record<string, string[] | null | undefined>
+}
+
 export default Vue.extend({
   layout: 'no-header',
+
+  async asyncData({ $content }: Context & { $content: contentFunc }) {
+    const categories = ((await $content(
+      'categories'
+    ).fetch()) as CategoriesDocument).categories
+
+    return {
+      categories: Object.keys(categories),
+    }
+  },
 })
 </script>

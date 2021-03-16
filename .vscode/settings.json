@@ -2,5 +2,6 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "vetur.validation.style": false
+  "vetur.validation.style": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
