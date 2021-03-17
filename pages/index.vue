@@ -21,18 +21,13 @@
 </template>
 
 <script lang="ts">
-import { contentFunc, IContentDocument } from '@nuxt/content/types/content'
-import { Context } from '@nuxt/types'
 import Vue from 'vue'
-
-interface CategoriesDocument extends IContentDocument {
-  categories: Record<string, string[] | null | undefined>
-}
+import { CategoriesDocument } from '~/content/categories'
 
 export default Vue.extend({
   layout: 'no-header',
 
-  async asyncData({ $content }: Context & { $content: contentFunc }) {
+  async asyncData({ $content }) {
     const categories = ((await $content(
       'categories'
     ).fetch()) as CategoriesDocument).categories

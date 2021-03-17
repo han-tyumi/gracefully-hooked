@@ -45,6 +45,7 @@ module.exports = {
       white: '#fff',
       black: '#000',
       gray: '#848484',
+      transparent: 'transparent',
     },
   },
   variants: {

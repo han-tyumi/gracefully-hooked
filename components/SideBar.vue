@@ -1,14 +1,27 @@
 <template lang="pug">
-.flex.flex-col.space-y-2
-  h2.text-xl.font-semibold Filters
-
-  ul.text-lg
-    li Animals
-    li Blankets
-    li Clothing
-    li Characters
-    li Hats
-    li Pillows
-    li Scarves
-    li Socks
+ul.space-y-2.w-40.capitalize.text-md
+  SideBarItem(
+    v-for="(subCategories, category) in categories",
+    :key="category",
+    v-bind="{category, subCategories}"
+  )
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { CategoriesDocument } from '~/content/categories'
+
+export default Vue.extend({
+  data() {
+    return {
+      categories: {} as CategoriesDocument['categories'],
+    }
+  },
+
+  async fetch() {
+    this.categories = ((await this.$nuxt.context
+      .$content('categories')
+      .fetch()) as CategoriesDocument).categories
+  },
+})
+</script>
