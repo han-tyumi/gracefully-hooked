@@ -3,5 +3,6 @@
   "less.validate": false,
   "scss.validate": false,
   "vetur.validation.style": false,
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.defaultFormatter": "octref.vetur"
 }

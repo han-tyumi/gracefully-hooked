@@ -48,4 +48,4 @@ jobs:
         run: yarn lint
 
       - name: Run tests 🧪
-        run: yarn test --passWithNoTests
+        run: yarn test

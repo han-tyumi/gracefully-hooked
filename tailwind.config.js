@@ -5,8 +5,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        flowers: "url('~/assets/flowers.svg')",
-        basket: "url('~/assets/basket.svg')",
+        flowers: "url('~/assets/img/flowers.svg')",
+        basket: "url('~/assets/img/basket.svg')",
       },
 
       backgroundPosition: {

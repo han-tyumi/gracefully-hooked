@@ -1,5 +1,5 @@
 <template lang="pug">
-ul.space-y-2.w-40.capitalize.text-md
+ul.space-y-2.w-44.capitalize.text-md
   SideBarItem(
     v-for="(subCategories, category) in categories",
     :key="category",
