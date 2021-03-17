@@ -13,7 +13,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{js,vue}": "eslint"
+    "*.{js,ts,vue}": "eslint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
