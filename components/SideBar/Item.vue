@@ -1,12 +1,12 @@
 <template lang="pug">
 ul.text-blue-dark
-  NuxtLink.group(:to="`/shop/${category}`", @click="toggle")
+  NuxtLink.group(:to="`/shop/${category}`")
     FontAwesomeIcon.mr-2.transition-transform.duration-300.ease-out(
       :class="{ 'text-transparent': !hasChildren }",
       :icon="['fas', 'caret-right']",
       :rotation="expanded ? '90' : undefined"
     )
-    span.group-hover_text-blue.group-hover_underline {{ category }}
+    span.group-hover_text-blue.group-hover_underline(@click="toggle") {{ category }}
   TransitionStaggered(
     v-for="(subCategory, index) in subCategories",
     :key="subCategory"
