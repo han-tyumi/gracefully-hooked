@@ -1,0 +1,9 @@
+services:
+  gracefully-hooked:
+    build: .
+    container_name: gracefully-hooked
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/app
