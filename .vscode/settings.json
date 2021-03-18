@@ -4,7 +4,13 @@
   "scss.validate": false,
   "vetur.validation.style": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.defaultFormatter": "octref.vetur",
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
   "vetur.experimental.templateInterpolationService": true,
-  "tailwindCSS.emmetCompletions": true
+  "tailwindCSS.emmetCompletions": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  }
 }

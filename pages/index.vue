@@ -21,10 +21,10 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { CategoriesDocument } from '~/content/categories'
 
-export default Vue.extend({
+export default defineComponent({
   layout: 'no-header',
 
   async asyncData({ $content }) {

@@ -20,9 +20,9 @@ ul.text-blue-dark
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue'
+import { defineComponent, PropType, toRefs, ref } from '@nuxtjs/composition-api'
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     category: {
       type: String,
@@ -30,7 +30,7 @@ export default Vue.extend({
     },
 
     subCategories: {
-      type: Array as PropType<string[]>,
+      type: [Array, null] as PropType<string[] | null>,
       default: () => [],
     },
 
@@ -40,24 +40,21 @@ export default Vue.extend({
     },
   },
 
-  data() {
+  setup(props) {
+    const { category, active, subCategories } = toRefs(props)
+
+    const expanded = ref(category.value === active.value)
+    const hasChildren = !!subCategories.value?.length
+
+    const toggle = hasChildren
+      ? () => (expanded.value = !expanded.value)
+      : () => {}
+
     return {
-      expanded: this.active === this.category,
+      expanded,
+      hasChildren,
+      toggle,
     }
-  },
-
-  computed: {
-    hasChildren(): boolean {
-      return !!this.subCategories?.length
-    },
-  },
-
-  methods: {
-    toggle() {
-      if (this.hasChildren) {
-        this.expanded = !this.expanded
-      }
-    },
   },
 })
 </script>

@@ -8,10 +8,10 @@ ul.space-y-2.w-52.capitalize.text-md
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent, useContext, useAsync } from '@nuxtjs/composition-api'
 import { CategoriesDocument } from '~/content/categories'
 
-export default Vue.extend({
+export default defineComponent({
   props: {
     active: {
       type: String,
@@ -19,16 +19,18 @@ export default Vue.extend({
     },
   },
 
-  data() {
-    return {
-      categories: {} as CategoriesDocument['categories'],
-    }
-  },
+  setup() {
+    const { $content } = useContext()
 
-  async fetch() {
-    this.categories = ((await this.$nuxt.context
-      .$content('categories')
-      .fetch()) as CategoriesDocument).categories
+    const categories = useAsync(
+      async () =>
+        ((await $content('categories').fetch()) as CategoriesDocument)
+          .categories
+    )
+
+    return {
+      categories,
+    }
   },
 })
 </script>

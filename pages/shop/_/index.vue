@@ -11,10 +11,10 @@ p.text-lg(v-else) No Items
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import { defineComponent } from '@nuxtjs/composition-api'
 import { ItemsDocument } from '~/content/items'
 
-export default Vue.extend({
+export default defineComponent({
   async asyncData({ $content, params }) {
     const categories = params.pathMatch.split('/').filter(Boolean)
 
