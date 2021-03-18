@@ -1,17 +1,22 @@
 <template lang="pug">
-ul
-  span(:class="{ 'cursor-pointer': hasChildren }", @click="toggle")
+ul.text-blue-dark
+  NuxtLink.group(:to="`/shop/${category}`", @click="toggle")
     FontAwesomeIcon.mr-2.transition-transform.duration-300.ease-out(
       :class="{ 'text-transparent': !hasChildren }",
       :icon="['fas', 'caret-right']",
       :rotation="expanded ? '90' : undefined"
     )
-    span {{ category }}
+    span.group-hover_text-blue.group-hover_underline {{ category }}
   TransitionStaggered(
-    v-for="(category, index) in subCategories",
-    :key="category"
+    v-for="(subCategory, index) in subCategories",
+    :key="subCategory"
   )
-    li.ml-8(v-show="expanded", :data-index="index") {{ category }}
+    li.ml-8.w-min.hover_text-blue.hover_underline(
+      v-show="expanded",
+      :data-index="index"
+    ): NuxtLink(
+      :to="`/shop/${category}/${subCategory}`"
+    ) {{ subCategory }}
 </template>
 
 <script lang="ts">
@@ -25,14 +30,19 @@ export default Vue.extend({
     },
 
     subCategories: {
-      type: Array as PropType<Array<string>>,
+      type: Array as PropType<string[]>,
       default: () => [],
+    },
+
+    active: {
+      type: String,
+      default: '',
     },
   },
 
   data() {
     return {
-      expanded: false,
+      expanded: this.active === this.category,
     }
   },
 
@@ -51,3 +61,9 @@ export default Vue.extend({
   },
 })
 </script>
+
+<style scoped>
+.nuxt-link-active {
+  @apply font-semibold text-blue-darker;
+}
+</style>

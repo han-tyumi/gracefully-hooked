@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.py-8.px-10.space-x-14
-  SideBar.mt-14
+  SideBar.mt-14(:active="categories[0]")
 
   .flex.flex-col.space-y-4.w-full
     h1.text-4xl.font-semibold.capitalize {{ title }}
@@ -21,10 +21,15 @@ import { ItemsDocument } from '~/content/items'
 
 export default Vue.extend({
   async asyncData({ $content, params }) {
-    const categories = params.pathMatch ? params.pathMatch.split('/') : []
-    const doc = (await $content('items', ...categories, {
-      deep: true,
-    }).fetch()) as ItemsDocument | ItemsDocument[]
+    const categories = params.pathMatch.split('/').filter(Boolean)
+
+    let doc: ItemsDocument | ItemsDocument[] = []
+    try {
+      doc = (await $content('items', ...categories, {
+        deep: true,
+      }).fetch()) as ItemsDocument | ItemsDocument[]
+    } catch (error) {}
+
     const items = Array.isArray(doc)
       ? doc.flatMap(({ items }) => items)
       : doc.items

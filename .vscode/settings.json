@@ -4,5 +4,7 @@
   "scss.validate": false,
   "vetur.validation.style": false,
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.defaultFormatter": "octref.vetur"
+  "editor.defaultFormatter": "octref.vetur",
+  "vetur.experimental.templateInterpolationService": true,
+  "tailwindCSS.emmetCompletions": true
 }

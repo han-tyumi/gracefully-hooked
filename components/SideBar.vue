@@ -1,9 +1,9 @@
 <template lang="pug">
-ul.space-y-2.w-44.capitalize.text-md
+ul.space-y-2.w-52.capitalize.text-md
   SideBarItem(
     v-for="(subCategories, category) in categories",
     :key="category",
-    v-bind="{category, subCategories}"
+    v-bind="{category, subCategories, active}"
   )
 </template>
 
@@ -12,6 +12,13 @@ import Vue from 'vue'
 import { CategoriesDocument } from '~/content/categories'
 
 export default Vue.extend({
+  props: {
+    active: {
+      type: String,
+      default: '',
+    },
+  },
+
   data() {
     return {
       categories: {} as CategoriesDocument['categories'],
