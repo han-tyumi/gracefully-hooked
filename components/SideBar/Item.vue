@@ -6,12 +6,12 @@ ul.text-blue-dark
       :icon="['fas', 'caret-right']",
       :rotation="expanded ? '90' : undefined"
     )
-    span.group-hover_text-blue.group-hover_underline(@click="toggle") {{ category }}
+    span.group-hover_text-blue.group-hover_underline {{ category }}
   TransitionStaggered(
     v-for="(subCategory, index) in subCategories",
     :key="subCategory"
   )
-    li.ml-8.w-min.hover_text-blue.hover_underline(
+    li.ml-8.w-max.hover_text-blue.hover_underline(
       v-show="expanded",
       :data-index="index"
     ): NuxtLink(
@@ -20,7 +20,14 @@ ul.text-blue-dark
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRefs, ref } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  PropType,
+  toRefs,
+  useStore,
+  computed,
+} from '@nuxtjs/composition-api'
+import { State } from '~/store/index'
 
 export default defineComponent({
   props: {
@@ -33,27 +40,19 @@ export default defineComponent({
       type: [Array, null] as PropType<string[] | null>,
       default: () => [],
     },
-
-    active: {
-      type: String,
-      default: '',
-    },
   },
 
   setup(props) {
-    const { category, active, subCategories } = toRefs(props)
+    const { category, subCategories } = toRefs(props)
 
-    const expanded = ref(category.value === active.value)
+    const store = useStore<State>()
+
+    const expanded = computed(() => category.value === store.state.active)
     const hasChildren = !!subCategories.value?.length
-
-    const toggle = hasChildren
-      ? () => (expanded.value = !expanded.value)
-      : () => {}
 
     return {
       expanded,
       hasChildren,
-      toggle,
     }
   },
 })

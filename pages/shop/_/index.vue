@@ -15,8 +15,10 @@ import { defineComponent } from '@nuxtjs/composition-api'
 import { ItemsDocument } from '~/content/items'
 
 export default defineComponent({
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, store }) {
     const categories = params.pathMatch.split('/').filter(Boolean)
+
+    store.commit('setActive', categories[0] ?? null)
 
     let doc: ItemsDocument | ItemsDocument[] = []
     try {
