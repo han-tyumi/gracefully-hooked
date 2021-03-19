@@ -15,7 +15,11 @@
     .grid.grid-cols-2.auto-cols-max.gap-x-4.gap-y-4.mt-4.w-max.text-md.sm_text-lg.md_text-xl.md_mt-12.md_gap-x-12
       NuxtLink.col-span-2.mx-auto(to="/shop/"): Button Shop All
 
-      Button.capitalize(v-for="category in categories", :key="category") {{ category }}
+      NuxtLink(
+        v-for="category in categories",
+        :key="category",
+        :to="`/shop/${category}`"
+      ): Button.w-full.capitalize {{ category }}
 
       Button.col-span-2.mx-10.mt-5 Custom
 </template>
