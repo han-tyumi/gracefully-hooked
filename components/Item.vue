@@ -6,12 +6,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    image: {
-      type: String,
+    images: {
+      type: Array as PropType<string[]>,
       required: true,
     },
     name: {
@@ -22,6 +22,16 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+  },
+
+  setup(props) {
+    const image = computed<string>(() =>
+      props.images.length ? require(`~/assets/img/${props.images[0]}`) : ''
+    )
+
+    return {
+      image,
+    }
   },
 })
 </script>

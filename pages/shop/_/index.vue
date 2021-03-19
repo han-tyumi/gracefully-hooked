@@ -3,7 +3,7 @@
   Item(
     v-for="item in items",
     :key="item.name",
-    :image="require(`~/assets/img/${item.image}.svg`)",
+    :images="item.images",
     :name="item.name",
     :price="item.price"
   )
@@ -13,21 +13,7 @@ p.text-lg(v-else) No Items
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
 import { basicConverter } from '~/utils/firestore'
-
-export interface Category {
-  [name: string]: Category | null
-}
-
-export interface Item {
-  name: string
-  description?: string
-  category: Category
-  images: string[]
-  tags?: string[]
-  price: number
-  size?: string
-  materials: string[]
-}
+import { Item } from '~/data/item'
 
 export default defineComponent({
   async asyncData({ params, store, $fire }) {
