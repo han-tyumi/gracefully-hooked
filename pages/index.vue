@@ -26,16 +26,12 @@
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { CategoriesDocument } from '~/content/categories'
+import { categories } from '~/data/categories'
 
 export default defineComponent({
   layout: 'no-header',
 
-  async asyncData({ $content }) {
-    const categories = ((await $content(
-      'categories'
-    ).fetch()) as CategoriesDocument).categories
-
+  setup() {
     return {
       categories: Object.keys(categories),
     }

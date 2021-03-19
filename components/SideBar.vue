@@ -3,26 +3,18 @@
   NuxtLink.text-blue-dark.hover_text-blue.hover_underline(to="/shop/") Shop All
   ul.space-y-2.w-52.capitalize.text-md
     SideBarItem(
-      v-for="(subCategories, category) in categories",
+      v-for="(subcategories, category) in categories",
       :key="category",
-      v-bind="{category, subCategories}"
+      v-bind="{category, subcategories}"
     )
 </template>
 
 <script lang="ts">
-import { defineComponent, useContext, useAsync } from '@nuxtjs/composition-api'
-import { CategoriesDocument } from '~/content/categories'
+import { defineComponent } from '@nuxtjs/composition-api'
+import { categories } from '~/data/categories'
 
 export default defineComponent({
   setup() {
-    const { $content } = useContext()
-
-    const categories = useAsync(
-      async () =>
-        ((await $content('categories').fetch()) as CategoriesDocument)
-          .categories
-    )
-
     return {
       categories,
     }

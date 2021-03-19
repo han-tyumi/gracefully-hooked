@@ -8,15 +8,15 @@ ul.text-blue-dark
     )
     span.group-hover_text-blue.group-hover_underline {{ category }}
   TransitionStaggered(
-    v-for="(subCategory, index) in subCategories",
-    :key="subCategory"
+    v-for="(subcategory, index) in subcategories",
+    :key="subcategory"
   )
     li.ml-8.w-max.hover_text-blue.hover_underline(
       v-show="expanded",
       :data-index="index"
     ): NuxtLink(
-      :to="`/shop/${category}/${subCategory}`"
-    ) {{ subCategory }}
+      :to="`/shop/${category}/${subcategory}`"
+    ) {{ subcategory }}
 </template>
 
 <script lang="ts">
@@ -36,19 +36,19 @@ export default defineComponent({
       required: true,
     },
 
-    subCategories: {
-      type: [Array, null] as PropType<string[] | null>,
+    subcategories: {
+      type: Array as PropType<string[]>,
       default: () => [],
     },
   },
 
   setup(props) {
-    const { category, subCategories } = toRefs(props)
+    const { category, subcategories } = toRefs(props)
 
     const store = useStore<State>()
 
     const expanded = computed(() => category.value === store.state.active)
-    const hasChildren = !!subCategories.value?.length
+    const hasChildren = !!subcategories.value?.length
 
     return {
       expanded,
