@@ -11,23 +11,46 @@ p.text-lg(v-else) No Items
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  useContext,
+  computed,
+  ref,
+  watch,
+} from '@nuxtjs/composition-api'
 import { basicConverter } from '~/utils/firestore'
 import { Item } from '~/data/item'
 
 export default defineComponent({
-  async asyncData({ params, store, $fire }) {
-    const categories = params.pathMatch.split('/').filter(Boolean)
+  setup() {
+    const { params, store, $fire } = useContext()
 
-    store.commit('setActive', categories[0] ?? null)
+    const categories = computed(() =>
+      params.value.pathMatch.split('/').filter(Boolean)
+    )
 
-    const snap = await $fire.firestore
-      .collection('items')
-      .orderBy(['category', ...categories].join('.'))
-      .withConverter(basicConverter<Item>())
-      .get()
+    const items = ref<Item[]>([])
 
-    const items = snap.docs.map((d) => d.data())
+    watch(
+      () => categories.value[0],
+      (value) => store.commit('setActive', value ?? null),
+      { immediate: true }
+    )
+
+    watch(
+      () => ['category', ...categories.value].join('.'),
+      (value, _prev, onInvalidate) => {
+        const unsubscribe = $fire.firestore
+          .collection('items')
+          .orderBy(value)
+          .withConverter(basicConverter<Item>())
+          .onSnapshot((snapshot) => {
+            items.value = snapshot.docs.map((d) => d.data())
+          })
+        onInvalidate(unsubscribe)
+      },
+      { immediate: true }
+    )
 
     return {
       items,
