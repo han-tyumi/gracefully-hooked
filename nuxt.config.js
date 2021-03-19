@@ -1,3 +1,5 @@
+import { firebaseConfig } from './firebase.config'
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -40,11 +42,18 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://content.nuxtjs.org
-    '@nuxt/content',
+    // https://firebase.nuxtjs.org
+    '@nuxtjs/firebase',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
   ],
+
+  firebase: {
+    config: firebaseConfig,
+    services: {
+      firestore: true,
+    },
+  },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

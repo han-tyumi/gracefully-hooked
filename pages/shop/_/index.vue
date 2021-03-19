@@ -12,24 +12,36 @@ p.text-lg(v-else) No Items
 
 <script lang="ts">
 import { defineComponent } from '@nuxtjs/composition-api'
-import { ItemsDocument } from '~/content/items'
+import { basicConverter } from '~/utils/firestore'
+
+export interface Category {
+  [name: string]: Category | null
+}
+
+export interface Item {
+  name: string
+  description?: string
+  category: Category
+  images: string[]
+  tags?: string[]
+  price: number
+  size?: string
+  materials: string[]
+}
 
 export default defineComponent({
-  async asyncData({ $content, params, store }) {
+  async asyncData({ params, store, $fire }) {
     const categories = params.pathMatch.split('/').filter(Boolean)
 
     store.commit('setActive', categories[0] ?? null)
 
-    let doc: ItemsDocument | ItemsDocument[] = []
-    try {
-      doc = (await $content('items', ...categories, {
-        deep: true,
-      }).fetch()) as ItemsDocument | ItemsDocument[]
-    } catch (error) {}
+    const snap = await $fire.firestore
+      .collection('items')
+      .orderBy(['category', ...categories].join('.'))
+      .withConverter(basicConverter<Item>())
+      .get()
 
-    const items = Array.isArray(doc)
-      ? doc.flatMap(({ items }) => items)
-      : doc.items
+    const items = snap.docs.map((d) => d.data())
 
     return {
       items,
