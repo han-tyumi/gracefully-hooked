@@ -10,7 +10,6 @@
   "vetur.experimental.templateInterpolationService": true,
   "tailwindCSS.emmetCompletions": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": true
   }
 }

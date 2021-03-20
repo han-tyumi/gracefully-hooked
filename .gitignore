@@ -91,3 +91,5 @@ sw.*
 
 # Firebase
 firebase.config.ts
+firebase-adminsdk.json
+*.xlsx

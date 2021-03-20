@@ -10,7 +10,8 @@
     "lint:js": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
     "lint": "yarn lint:js",
     "test": "jest --passWithNoTests",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "upload": "GOOGLE_APPLICATION_CREDENTIALS=firebase-adminsdk.json ts-node-script firebase/upload.ts"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint"
@@ -38,6 +39,7 @@
     "@nuxtjs/stylelint-module": "^4.0.0",
     "@nuxtjs/tailwindcss": "^4.0.1",
     "@prettier/plugin-pug": "^1.13.5",
+    "@tsconfig/node14": "^1.0.0",
     "@vue/test-utils": "^1.1.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.1.0",
@@ -47,6 +49,8 @@
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.5.0",
+    "exceljs": "^4.2.1",
+    "firebase-admin": "^9.5.0",
     "firebase-tools": "^9.6.1",
     "husky": "^5.1.3",
     "jest": "^26.6.3",
@@ -59,6 +63,7 @@
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^21.0.0",
     "ts-jest": "^26.5.4",
+    "ts-node": "^9.1.1",
     "vue-jest": "^3.0.4"
   }
 }

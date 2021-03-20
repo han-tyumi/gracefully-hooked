@@ -27,7 +27,7 @@ export default defineComponent({
   setup(props) {
     const image = computed<string>(() => {
       try {
-        return require(`~/assets/img/${props.images[0]}`)
+        return require(`~/assets/img/items/${props.images[0]}`)
       } catch (error) {
         return ''
       }

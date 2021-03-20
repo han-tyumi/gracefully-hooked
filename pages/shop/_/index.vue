@@ -19,7 +19,7 @@ import {
   watch,
 } from '@nuxtjs/composition-api'
 import { basicConverter } from '~/utils/firestore'
-import { Item } from '~/data/item'
+import { Item } from '~/firebase/types'
 
 export default defineComponent({
   setup() {
