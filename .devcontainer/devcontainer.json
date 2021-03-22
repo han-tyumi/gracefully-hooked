@@ -20,6 +20,7 @@
     "dbaeumer.vscode-eslint",
     "heybourn.headwind",
     "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
     "octref.vetur",
     "bradlc.vscode-tailwindcss"
   ],
