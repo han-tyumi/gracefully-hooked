@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "vivaxy.vscode-conventional-commits",
+    "octref.vetur",
+    "bradlc.vscode-tailwindcss",
+    "heybourn.headwind",
+    "stylelint.vscode-stylelint",
+    "ms-vscode-remote.vscode-remote-extensionpack",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}
