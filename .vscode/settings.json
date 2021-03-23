@@ -1,15 +1,30 @@
 {
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "vetur.experimental.templateInterpolationService": true,
+
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
   "vetur.validation.style": false,
-  "typescript.tsdk": "node_modules/typescript/lib",
-  "[vue]": {
-    "editor.defaultFormatter": "octref.vetur"
-  },
-  "vetur.experimental.templateInterpolationService": true,
+
   "tailwindCSS.emmetCompletions": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
+
+  "headwind.classRegex": {
+    "vue": [
+      {
+        "regex": "\\.([_a-zA-Z0-9-]+(?:\\.[_a-zA-Z0-9-]+)*)",
+        "separator": "\\.",
+        "replacement": "."
+      },
+      "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
+      "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);"
+    ]
   }
 }

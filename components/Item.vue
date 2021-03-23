@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.flex-col
-  img.mb-1.w-36.h-36.border.border-black(:src="image")
+  img.mb-1.w-36.h-36.border.border-black.object-cover(:src="image")
   span {{ name }}
   span ${{ price }}
 </template>
