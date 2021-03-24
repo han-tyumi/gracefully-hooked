@@ -1,8 +1,9 @@
 <template lang="pug">
 .flex.flex-col
-  img.mb-1.w-36.h-36.border.border-black.object-cover(:src="image")
-  span {{ name }}
-  span ${{ price }}
+  NuxtLink.w-max(:to="link")
+    img.mb-1.w-36.h-36.border.border-black.object-cover(:src="image")
+  NuxtLink.w-max(:to="link") {{ name }}
+  NuxtLink.w-max(:to="link") ${{ price }}
 </template>
 
 <script lang="ts">
@@ -22,6 +23,10 @@ export default defineComponent({
       type: Number,
       required: true,
     },
+    slug: {
+      type: String,
+      required: true,
+    },
   },
 
   setup(props) {
@@ -33,8 +38,11 @@ export default defineComponent({
       }
     })
 
+    const link = computed(() => `/item/${props.slug}`)
+
     return {
       image,
+      link,
     }
   },
 })

@@ -2,10 +2,11 @@
 .grid.grid-cols-4.gap-4(v-if="items.length")
   Item(
     v-for="item in items",
-    :key="item.name",
+    :key="item.slug",
     :images="item.images",
     :name="item.name",
-    :price="item.price"
+    :price="item.price",
+    :slug="item.slug"
   )
 p.text-lg(v-else) No Items
 </template>
