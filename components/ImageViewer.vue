@@ -1,6 +1,6 @@
 <template lang="pug">
 .flex.space-x-4
-  .flex.flex-col.space-y-2(v-if="hasMultiple")
+  .flex.flex-col.space-y-2.flex-shrink-0(v-if="hasMultiple")
     img.w-36.h-36.border-black.object-cover(
       v-for="path in imagePaths",
       :key="path",
@@ -9,7 +9,10 @@
       :src="path"
     )
 
-  img.flex-grow.w-0.object-cover.border.border-black(:src="selected")
+  .full-image
+    img.absolute.inset-0.object-cover.border.border-black.w-full.h-full(
+      :src="selected"
+    )
 </template>
 
 <script lang="ts">
@@ -48,3 +51,15 @@ export default defineComponent({
   },
 })
 </script>
+
+<style scoped>
+.full-image {
+  @apply inline-block w-full relative flex-grow;
+}
+.full-image::after {
+  @apply block;
+
+  content: '';
+  margin-top: 100%;
+}
+</style>

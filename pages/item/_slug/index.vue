@@ -1,8 +1,8 @@
 <template lang="pug">
 .py-12.px-8
-  .flex.w-full.space-x-8(v-if="item")
-    ImageViewer(class="w-8/12", :images="item.images")
-    Details(class="w-4/12", :item="item")
+  .flex.w-full.space-x-12(v-if="item")
+    ImageViewer(class="w-7/12", :images="item.images")
+    Details(class="w-5/12", :item="item")
   h2.flex.w-full.justify-center.text-lg(v-else) Loading...
 </template>
 
