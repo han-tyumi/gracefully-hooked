@@ -1,13 +1,17 @@
 <template lang="pug">
-pre {{ item }}
+.py-12.px-8
+  .flex.w-full.space-x-8(v-if="item")
+    ImageViewer(class="w-8/12", :images="item.images")
+    Details(class="w-4/12", :item="item")
+  h2.flex.w-full.justify-center.text-lg(v-else) Loading...
 </template>
 
 <script lang="ts">
 import {
   defineComponent,
-  onUnmounted,
-  ref,
   useContext,
+  ref,
+  onUnmounted,
 } from '@nuxtjs/composition-api'
 import { Item } from '~/firebase/types'
 import { basicConverter } from '~/utils/firestore'
@@ -26,7 +30,7 @@ export default defineComponent({
         item.value = snapshot.data()
       })
 
-    onUnmounted(() => unsubscribe)
+    onUnmounted(unsubscribe)
 
     return {
       item,

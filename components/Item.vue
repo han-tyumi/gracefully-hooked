@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
+import { loadImage } from '~/utils/item'
 
 export default defineComponent({
   props: {
@@ -30,14 +31,7 @@ export default defineComponent({
   },
 
   setup(props) {
-    const image = computed<string>(() => {
-      try {
-        return require(`~/assets/img/items/${props.images[0]}`)
-      } catch (error) {
-        return ''
-      }
-    })
-
+    const image = computed(() => loadImage(props.images[0]))
     const link = computed(() => `/item/${props.slug}`)
 
     return {
