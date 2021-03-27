@@ -16,12 +16,14 @@
     label.font-semibold Materials
     p {{ materials }}
 
-  Button.max-w-max Add to Bag
+  Button.max-w-max(@click="addItem") Add to Bag
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
 import { Item } from '~/firebase/types'
+import { useStore } from '~/store'
+import { CartItem } from '~/store/cart'
 
 export default defineComponent({
   props: {
@@ -32,9 +34,20 @@ export default defineComponent({
   },
 
   setup(props) {
+    const store = useStore()
+
+    const addItem = () =>
+      store.commit('cart/add', {
+        slug: props.item.slug,
+        name: props.item.name,
+        image: props.item.images[0],
+        price: props.item.price,
+      } as CartItem)
+
     const materials = computed(() => props.item.materials.join(', '))
 
     return {
+      addItem,
       materials,
     }
   },

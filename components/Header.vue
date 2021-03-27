@@ -8,4 +8,22 @@
       input.px-2.text-black.rounded
 
     FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
+    span {{ items }}
 </template>
+
+<script lang="ts">
+import { defineComponent, computed } from '@nuxtjs/composition-api'
+import { useStore } from '~/store'
+
+export default defineComponent({
+  setup() {
+    const store = useStore()
+
+    const items = computed(() => Object.values(store.state.cart.items).length)
+
+    return {
+      items,
+    }
+  },
+})
+</script>

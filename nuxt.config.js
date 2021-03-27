@@ -42,6 +42,12 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      'nuxt-vuex-localstorage',
+      {
+        localStorage: ['cart'],
+      },
+    ],
     // https://firebase.nuxtjs.org
     '@nuxtjs/firebase',
     // https://go.nuxtjs.dev/pwa

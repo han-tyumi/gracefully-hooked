@@ -24,10 +24,9 @@ import {
   defineComponent,
   PropType,
   toRefs,
-  useStore,
   computed,
 } from '@nuxtjs/composition-api'
-import { State } from '~/store/index'
+import { useStore } from '~/store'
 
 export default defineComponent({
   props: {
@@ -45,7 +44,7 @@ export default defineComponent({
   setup(props) {
     const { category, subcategories } = toRefs(props)
 
-    const store = useStore<State>()
+    const store = useStore()
 
     const expanded = computed(() => category.value === store.state.active)
     const hasChildren = !!subcategories.value?.length
