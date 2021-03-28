@@ -5,6 +5,7 @@ import {
   faSearch,
   faShoppingBag,
   faCaretRight,
+  faTimes,
 } from '@fortawesome/free-solid-svg-icons'
 import {
   faFacebookSquare,
@@ -18,7 +19,8 @@ library.add(
   faShoppingBag,
   faCaretRight,
   faFacebookSquare,
-  faInstagram
+  faInstagram,
+  faTimes
 )
 
 Vue.component('FontAwesomeIcon', FontAwesomeIcon)
