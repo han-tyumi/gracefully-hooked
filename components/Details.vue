@@ -6,11 +6,11 @@
 
   .flex.flex-col
     label.font-semibold Description
-    p {{ item.description }}
+    p.whitespace-pre-wrap {{ item.description }}
 
   .flex.flex-col
     label.font-semibold Size
-    p {{ item.size }}
+    p.whitespace-pre-wrap {{ item.size }}
 
   .flex.flex-col
     label.font-semibold Materials
