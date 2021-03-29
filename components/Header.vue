@@ -12,7 +12,7 @@
       span.rounded-full.bg-blue-darker.text-white.absolute.-bottom-2.-right-4.font-semibold.text-xs.w-6.text-center(
         v-if="items"
       ) {{ items }}
-    .p-2(ref="cart"): Cart
+    .p-2(v-show="items", ref="cart"): Cart
 </template>
 
 <script lang="ts">
