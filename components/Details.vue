@@ -16,7 +16,7 @@
     label.font-semibold Materials
     p {{ materials }}
 
-  Button.max-w-max(@click="addItem") Add to Bag
+  Button.max-w-max(@click="addItem", :disabled="disabled") Add to Bag
 </template>
 
 <script lang="ts">
@@ -36,7 +36,12 @@ export default defineComponent({
   setup(props) {
     const store = useStore()
 
+    const disabled = computed(() =>
+      Object.keys(store.state.cart.items).includes(props.item.slug)
+    )
+
     const addItem = () =>
+      !disabled.value &&
       store.commit('cart/add', {
         slug: props.item.slug,
         name: props.item.name,
@@ -47,6 +52,7 @@ export default defineComponent({
     const materials = computed(() => props.item.materials.join(', '))
 
     return {
+      disabled,
       addItem,
       materials,
     }
