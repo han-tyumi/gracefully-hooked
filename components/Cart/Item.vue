@@ -1,10 +1,12 @@
 <template lang="pug">
 .flex.justify-between.items-center.space-x-4
   .flex.space-x-2.items-center
-    img.w-12.h-12.object-cover.border.border-black(:src="image")
+    NuxtLink(:to="link"): img.w-12.h-12.object-cover.border.border-black(
+      :src="image"
+    )
     .flex.flex-col
-      h1.font-semibold {{ item.name }}
-      h2.text-sm ${{ item.price }}
+      NuxtLink.font-semibold.w-max(:to="link") {{ item.name }}
+      NuxtLink.text-sm.w-max(:to="link") ${{ item.price }}
   FontAwesomeIcon.cursor-pointer(
     :icon="['fas', 'times']",
     size="lg",
@@ -30,11 +32,13 @@ export default defineComponent({
     const store = useStore()
 
     const image = computed(() => loadImage(props.item.image))
+    const link = computed(() => `/item/${props.item.slug}`)
 
     const removeItem = () => store.commit('cart/remove', props.item)
 
     return {
       image,
+      link,
       removeItem,
     }
   },

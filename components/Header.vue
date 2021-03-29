@@ -10,9 +10,9 @@
     .relative(ref="cartIcon")
       FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
       span.rounded-full.bg-blue-darker.text-white.absolute.-bottom-2.-right-4.font-semibold.text-xs.w-6.text-center(
-        v-if="items"
-      ) {{ items }}
-    .p-2(v-show="items", ref="cart"): Cart
+        v-if="numItems"
+      ) {{ numItems }}
+    .pl-1.pr-2.pt-2.pb-1(v-show="numItems", ref="cart"): Cart
 </template>
 
 <script lang="ts">
@@ -31,7 +31,9 @@ export default defineComponent({
   setup() {
     const store = useStore()
 
-    const items = computed(() => Object.values(store.state.cart.items).length)
+    const numItems = computed(
+      () => Object.values(store.state.cart.items).length
+    )
 
     const cartIcon = ref<HTMLElement>()
     const cart = ref<HTMLElement>()
@@ -49,7 +51,7 @@ export default defineComponent({
         interactiveBorder: 10,
         interactiveDebounce: 250,
         onShow() {
-          if (!items.value) {
+          if (!numItems.value) {
             return false
           }
         },
@@ -59,7 +61,7 @@ export default defineComponent({
       })
 
       watchEffect(() => {
-        if (!items.value) {
+        if (!numItems.value) {
           hideAll({ duration: 0 })
         }
       })
@@ -68,7 +70,7 @@ export default defineComponent({
     })
 
     return {
-      items,
+      numItems,
       cartIcon,
       cart,
     }
