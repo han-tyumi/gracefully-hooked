@@ -1,7 +1,7 @@
 <template lang="pug">
 .space-y-4
   NuxtLink.text-blue-dark.hover_text-blue.hover_underline(to="/shop/") Shop All
-  ul.space-y-2.w-52.capitalize.text-md
+  ul.space-y-2.w-52.capitalize
     SideBarItem(
       v-for="(subcategories, category) in categories",
       :key="category",

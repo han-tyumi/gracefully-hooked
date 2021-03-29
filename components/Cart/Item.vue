@@ -3,7 +3,7 @@
   .flex.space-x-2.items-center
     img.w-12.h-12.object-cover.border.border-black(:src="image")
     .flex.flex-col
-      h1.text-md.font-semibold {{ item.name }}
+      h1.font-semibold {{ item.name }}
       h2.text-sm ${{ item.price }}
   FontAwesomeIcon.cursor-pointer(
     :icon="['fas', 'times']",
@@ -31,7 +31,7 @@ export default defineComponent({
 
     const image = computed(() => loadImage(props.item.image))
 
-    const removeItem = () => store.commit('cart/remove', props.item.slug)
+    const removeItem = () => store.commit('cart/remove', props.item)
 
     return {
       image,

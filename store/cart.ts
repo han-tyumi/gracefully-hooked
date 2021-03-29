@@ -9,17 +9,21 @@ export interface CartItem {
 
 export interface State {
   items: Record<string, CartItem | undefined>
+  total: number
 }
 
 export const state = (): State => ({
   items: {},
+  total: 0,
 })
 
 export const mutations = {
   add(state: State, item: CartItem) {
     state.items = assoc(item.slug, item, state.items)
+    state.total += item.price
   },
-  remove(state: State, slug: string) {
-    state.items = dissoc(slug, state.items)
+  remove(state: State, item: CartItem) {
+    state.items = dissoc(item.slug, state.items)
+    state.total -= item.price
   },
 }
