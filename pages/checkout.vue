@@ -1,9 +1,7 @@
 <template lang="pug">
-.flex.flex-col.space-y-4
-  ul.space-y-2
-    li(v-for="item in items")
-      CartItem(:item="item")
-  h5.text-lg.font-semibold.text-right Subtotal: ${{ total }}
+.flex.flex-col.py-8.items-center.space-y-8
+  CheckoutCart(:items="items")
+  h1.text-xl.font-semibold Subtotal: ${{ total }}
 </template>
 
 <script lang="ts">

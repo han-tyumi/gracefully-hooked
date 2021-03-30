@@ -7,12 +7,13 @@
       FontAwesomeIcon(:icon="['fas', 'search']")
       input.px-2.text-black.rounded
 
-    .relative(ref="cartIcon")
-      FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
-      span.rounded-full.bg-blue-darker.text-white.absolute.-bottom-2.-right-4.font-semibold.text-xs.w-6.text-center(
-        v-if="numItems"
-      ) {{ numItems }}
-    .pl-1.pr-2.pt-2.pb-1(v-show="numItems", ref="cart"): Cart
+      .relative(ref="cartIcon")
+        component(:is="numItems ? 'NuxtLink' : 'div'", to="/checkout")
+          FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
+          span.rounded-full.bg-blue-darker.text-white.absolute.-bottom-2.-right-4.font-semibold.text-xs.w-6.text-center(
+            v-if="numItems"
+          ) {{ numItems }}
+      .pl-1.pr-2.pt-2.pb-1(v-show="numItems", ref="cart"): Cart
 </template>
 
 <script lang="ts">
