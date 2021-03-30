@@ -1,7 +1,11 @@
 <template lang="pug">
-.flex.flex-col.py-8.items-center.space-y-8
-  CheckoutCart(:items="items")
-  h1.text-xl.font-semibold Subtotal: ${{ total }}
+.py-8
+  .flex.flex-col.items-center.space-y-8(v-if="items.length")
+    CheckoutCart(:items="items")
+    h1.text-xl.font-semibold Subtotal: ${{ total }}
+  .flex.flex-col.items-center.space-y-4(v-else)
+    p.text-xl No Items In Your Bag
+    NuxtLink(to="/shop/"): Button Shop All
 </template>
 
 <script lang="ts">
