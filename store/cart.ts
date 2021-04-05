@@ -8,7 +8,7 @@ export interface CartItem {
 }
 
 export interface State {
-  items: Record<string, CartItem | undefined>
+  items: Record<string, CartItem>
   total: number
 }
 

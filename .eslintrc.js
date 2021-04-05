@@ -4,6 +4,9 @@ module.exports = {
     browser: true,
     node: true,
   },
+  globals: {
+    paypal: 'readonly',
+  },
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier',
