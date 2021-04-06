@@ -6,6 +6,7 @@ module.exports = {
   },
   globals: {
     paypal: 'readonly',
+    PayPal: 'readonly',
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',

@@ -1,12 +1,12 @@
 <template lang="pug">
 .py-8
-  .flex.justify-center.space-x-16(v-if="items.length")
+  .flex.justify-center.space-x-16(v-show="items.length")
     .flex.flex-col
       CheckoutCart(:items="items")
     .flex.flex-col.space-y-8
       h1.text-xl.font-semibold Subtotal: ${{ total }}
-      PayPalButton(v-bind="{ createOrder, onApprove }")
-  .flex.flex-col.items-center.space-y-4(v-else)
+      PayPalButtons(v-bind="{ createOrder, onApprove }")
+  .flex.flex-col.items-center.space-y-4(v-show="!items.length")
     p.text-xl No Items In Your Bag
     NuxtLink(to="/shop/"): Button Shop All
 </template>
@@ -22,21 +22,21 @@ export default defineComponent({
     const items = computed(() => Object.values(store.state.cart.items))
     const total = computed(() => store.state.cart.total)
 
-    const createOrder = (_: any, actions: any) => {
+    const createOrder: PayPal.createOrder = (_, actions) => {
       // eslint-disable-next-line camelcase
-      const currency_code = 'USD'
+      const currency_code = PayPal.CurrencyCode.USD
 
       return actions.order.create({
         purchase_units: [
           {
             amount: {
               currency_code,
-              value: total.value,
+              value: total.value.toString(),
 
               breakdown: {
                 item_total: {
                   currency_code,
-                  value: total.value,
+                  value: total.value.toString(),
                 },
               },
             },
@@ -46,10 +46,10 @@ export default defineComponent({
 
               unit_amount: {
                 currency_code,
-                value: item.price,
+                value: item.price.toString(),
               },
 
-              quantity: 1,
+              quantity: '1',
               category: 'PHYSICAL_GOODS',
             })),
           },
@@ -57,9 +57,9 @@ export default defineComponent({
       })
     }
 
-    const onApprove = async (_: any, actions: any) => {
+    const onApprove: PayPal.onApprove = async (_, actions) => {
       const details = await actions.order.capture()
-      alert(JSON.stringify(details))
+      console.log(details)
     }
 
     return {
