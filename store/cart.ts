@@ -1,5 +1,3 @@
-import { assoc, dissoc } from 'ramda'
-
 export interface CartItem {
   slug: string
   name: string
@@ -19,11 +17,12 @@ export const state = (): State => ({
 
 export const mutations = {
   add(state: State, item: CartItem) {
-    state.items = assoc(item.slug, item, state.items)
+    state.items = { ...state.items, [item.slug]: item }
     state.total += item.price
   },
   remove(state: State, item: CartItem) {
-    state.items = dissoc(item.slug, state.items)
+    const { [item.slug]: _, ...stateItems } = state.items
+    state.items = stateItems
     state.total -= item.price
   },
 }
