@@ -1,20 +1,41 @@
-<template lang="pug">
-div(class="flex justify-center items-center space-x-4")
-  div(class="flex space-x-4 w-full")
-    div(class="relative")
-      NuxtLink(:to="link"): img(
-        :src="image",
-        class="w-32 h-32 object-cover border border-black"
-      )
-      div(class="absolute -top-3 -left-3 bg-turquoise rounded-full cursor-pointer px-2")
-        FontAwesomeIcon(
-          :icon="['fas', 'times']",
-          size="md",
-          @click="removeItem"
-        )
-    div(class="flex flex-col")
-      NuxtLink(:to="link", class="text-xl font-semibold w-max") {{ item.name }}
-      NuxtLink(:to="link", class="text-lg w-max") ${{ item.price }}
+<template>
+  <div class="flex justify-center items-center space-x-4">
+    <div class="flex space-x-4 w-full">
+      <div class="relative">
+        <NuxtLink :to="link">
+          <img
+            class="w-32 h-32 object-cover border border-black"
+            :src="image"
+          />
+        </NuxtLink>
+
+        <div
+          class="
+            absolute
+            -top-3
+            -left-3
+            bg-turquoise
+            rounded-full
+            cursor-pointer
+            px-2
+          "
+        >
+          <FontAwesomeIcon
+            :icon="['fas', 'times']"
+            size="md"
+            @click="removeItem"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col">
+        <NuxtLink class="text-xl font-semibold w-max" :to="link">
+          {{ item.name }}
+        </NuxtLink>
+        <NuxtLink class="text-lg w-max" :to="link">${{ item.price }}</NuxtLink>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

@@ -1,22 +1,29 @@
-<template lang="pug">
-div(class="flex flex-col space-y-10")
-  div(class="flex flex-col")
-    h1(class="text-3xl font-semibold") {{ item.name }}
-    h3(class="text-2xl") ${{ item.price }}
+<template>
+  <div class="flex flex-col space-y-10">
+    <div class="flex flex-col">
+      <h1 class="text-3xl font-semibold">{{ item.name }}</h1>
+      <h3 class="text-2xl">${{ item.price }}</h3>
+    </div>
 
-  div(class="flex flex-col")
-    label(class="font-semibold") Description
-    p(class="whitespace-pre-wrap") {{ item.description }}
+    <div class="flex flex-col">
+      <label class="font-semibold">Description</label>
+      <p class="whitespace-pre-wrap">{{ item.description }}</p>
+    </div>
 
-  div(class="flex flex-col")
-    label(class="font-semibold") Size
-    p(class="whitespace-pre-wrap") {{ item.size }}
+    <div class="flex flex-col">
+      <label class="font-semibold">Size</label>
+      <p class="whitespace-pre-wrap">{{ item.size }}</p>
+    </div>
 
-  div(class="flex flex-col")
-    label(class="font-semibold") Materials
-    p {{ materials }}
+    <div class="flex flex-col">
+      <label class="font-semibold">Materials</label>
+      <p>{{ materials }}</p>
+    </div>
 
-  Button(class="max-w-max", @click="addItem", :disabled="disabled") Add to Bag
+    <Button class="max-w-max" :disabled="disabled" @click="addItem">
+      Add to Bag
+    </Button>
+  </div>
 </template>
 
 <script lang="ts">

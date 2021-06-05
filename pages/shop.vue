@@ -1,10 +1,12 @@
-<template lang="pug">
-div(class="flex py-8 px-10 space-x-14")
-  SideBar(class="mt-3")
+<template>
+  <div class="flex py-8 px-10 space-x-14">
+    <SideBar class="mt-3" />
 
-  div(class="flex flex-col space-y-14 w-full")
-    h1(class="text-4xl font-semibold capitalize") {{ title }}
-    NuxtChild(v-bind="{ categories }")
+    <div class="flex flex-col space-y-14 w-full">
+      <h1 class="text-4xl font-semibold capitalize">{{ title }}</h1>
+      <NuxtChild v-bind="{ categories }" />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

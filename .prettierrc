@@ -1,7 +1,4 @@
 {
   "semi": false,
-  "singleQuote": true,
-  "pugSingleQuote": false,
-  "pugFramework": "vue",
-  "pugClassNotation": "attribute"
+  "singleQuote": true
 }

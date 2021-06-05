@@ -1,11 +1,12 @@
-<template lang="pug">
-transition(
-  :css="false",
-  @beforeEnter="beforeEnter",
-  @enter="enter",
-  @leave="leave"
-)
-  slot
+<template>
+  <transition
+    :css="false"
+    @beforeEnter="beforeEnter"
+    @enter="enter"
+    @leave="leave"
+  >
+    <slot />
+  </transition>
 </template>
 
 <script lang="ts">

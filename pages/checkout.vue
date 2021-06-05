@@ -1,14 +1,23 @@
-<template lang="pug">
-div(class="py-8")
-  div(v-show="items.length", class="flex justify-center space-x-16")
-    div(class="flex flex-col")
-      CheckoutCart(:items="items")
-    div(class="flex flex-col space-y-8")
-      h1(class="text-xl font-semibold") Subtotal: ${{ total }}
-      PayPalButtons(v-bind="{ createOrder, onApprove }")
-  div(v-show="!items.length", class="flex flex-col items-center space-y-4")
-    p(class="text-xl") No Items In Your Bag
-    NuxtLink(to="/shop/"): Button Shop All
+<template>
+  <div class="py-8">
+    <div v-show="items.length" class="flex justify-center space-x-16">
+      <div class="flex flex-col">
+        <CheckoutCart :items="items" />
+      </div>
+
+      <div class="flex flex-col space-y-8">
+        <h1 class="text-xl font-semibold">Subtotal: ${{ total }}</h1>
+        <PayPalButtons v-bind="{ createOrder, onApprove }" />
+      </div>
+    </div>
+
+    <div v-show="!items.length" class="flex flex-col items-center space-y-4">
+      <p class="text-xl">No Items In Your Bag</p>
+      <NuxtLink to="/shop/">
+        <Button>Shop All</Button>
+      </NuxtLink>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

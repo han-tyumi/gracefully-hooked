@@ -1,14 +1,15 @@
-<template lang="pug">
-div(v-if="items.length", class="grid grid-cols-4 gap-4")
-  Item(
-    v-for="item in items",
-    :key="item.slug",
-    :images="item.images",
-    :name="item.name",
-    :price="item.price",
-    :slug="item.slug"
-  )
-p(v-else, class="text-lg") No Items
+<template>
+  <div v-if="items.length" class="grid grid-cols-4 gap-4">
+    <Item
+      v-for="item in items"
+      :key="item.slug"
+      :images="item.images"
+      :name="item.name"
+      :price="item.price"
+      :slug="item.slug"
+    />
+  </div>
+  <p v-else class="text-lg">No Items</p>
 </template>
 
 <script lang="ts">

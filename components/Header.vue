@@ -1,20 +1,44 @@
-<template lang="pug">
-div(class="flex justify-between items-center py-2 px-6 text-white bg-blue-light")
-  NuxtLink(to="/"): h1(class="text-3xl font-logo") Gracefully Hooked
+<template>
+  <div
+    class="flex justify-between items-center py-2 px-6 text-white bg-blue-light"
+  >
+    <NuxtLink to="/">
+      <h1 class="text-3xl font-logo">Gracefully Hooked</h1>
+    </NuxtLink>
 
-  div(class="flex items-center space-x-6")
-    div(class="flex items-center space-x-2")
-      FontAwesomeIcon(:icon="['fas', 'search']")
-      input(class="px-2 text-black rounded")
+    <div class="flex items-center space-x-6">
+      <div class="flex items-center space-x-2">
+        <FontAwesomeIcon :icon="['fas', 'search']" />
+        <input class="px-2 text-black rounded" />
 
-      div(class="relative", ref="cartIcon")
-        component(:is="numItems ? 'NuxtLink' : 'div'", to="/checkout")
-          FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
-          span(
-            v-if="numItems",
-            class="rounded-full bg-blue-darker text-white absolute -bottom-2 -right-4 font-semibold text-xs w-6 text-center"
-          ) {{ numItems }}
-      div(v-show="numItems", class="pl-1 pr-2 pt-2 pb-1", ref="cart"): Cart
+        <div ref="cartIcon" class="relative">
+          <component :is="numItems ? 'NuxtLink' : 'div'" to="/checkout">
+            <FontAwesomeIcon :icon="['fas', 'shopping-bag']" size="lg" />
+            <span
+              v-if="numItems"
+              class="
+                rounded-full
+                bg-blue-darker
+                text-white
+                absolute
+                -bottom-2
+                -right-4
+                font-semibold
+                text-xs
+                w-6
+                text-center
+              "
+            >
+              {{ numItems }}
+            </span>
+          </component>
+        </div>
+        <div v-show="numItems" ref="cart" class="pl-1 pr-2 pt-2 pb-1">
+          <Cart />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

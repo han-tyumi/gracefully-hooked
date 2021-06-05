@@ -1,9 +1,13 @@
-<template lang="pug">
-div(class="flex flex-col space-y-4")
-  ul(class="space-y-2")
-    li(v-for="item in items")
-      CartItem(:item="item")
-  h5(class="text-lg font-semibold text-right") Subtotal: ${{ total }}
+<template>
+  <div class="flex flex-col space-y-4">
+    <ul class="space-y-2">
+      <li v-for="item in items" :key="item.slug">
+        <CartItem :item="item" />
+      </li>
+    </ul>
+
+    <h5 class="text-lg font-semibold text-right">Subtotal: ${{ total }}</h5>
+  </div>
 </template>
 
 <script lang="ts">

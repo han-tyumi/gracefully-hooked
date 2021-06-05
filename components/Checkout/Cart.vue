@@ -1,7 +1,9 @@
-<template lang="pug">
-ul(class="space-y-6")
-  li(v-for="item in items")
-    CheckoutItem(:item="item")
+<template>
+  <ul class="space-y-6">
+    <li v-for="item in items" :key="item.slug">
+      <CheckoutItem :item="item" />
+    </li>
+  </ul>
 </template>
 
 <script lang="ts">

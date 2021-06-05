@@ -1,5 +1,6 @@
-<template lang="pug">
-div
-  Nuxt
-  Footer
+<template>
+  <div>
+    <Nuxt />
+    <Footer />
+  </div>
 </template>

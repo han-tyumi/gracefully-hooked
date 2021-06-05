@@ -1,24 +1,32 @@
-<template lang="pug">
-ul(class="text-blue-dark")
-  NuxtLink(:to="`/shop/${category}`", class="group")
-    FontAwesomeIcon(
-      class="mr-2 transition-transform duration-300 ease-out",
-      :class="{ 'text-transparent': !hasChildren }",
-      :icon="['fas', 'caret-right']",
-      :rotation="expanded ? '90' : undefined"
-    )
-    span(class="group-hover_text-blue group-hover_underline") {{ category }}
-  TransitionStaggered(
-    v-for="(subcategory, index) in subcategories",
-    :key="subcategory"
-  )
-    li(
-      v-show="expanded",
-      :data-index="index",
-      class="ml-8 w-max hover_text-blue hover_underline"
-    ): NuxtLink(
-      :to="`/shop/${category}/${subcategory}`"
-    ) {{ subcategory }}
+<template>
+  <ul class="text-blue-dark">
+    <NuxtLink class="group" :to="`/shop/${category}`">
+      <FontAwesomeIcon
+        class="mr-2 transition-transform duration-300 ease-out"
+        :class="{ 'text-transparent': !hasChildren }"
+        :icon="['fas', 'caret-right']"
+        :rotation="expanded ? '90' : undefined"
+      />
+      <span class="group-hover_text-blue group-hover_underline">
+        {{ category }}
+      </span>
+    </NuxtLink>
+
+    <TransitionStaggered
+      v-for="(subcategory, index) in subcategories"
+      :key="subcategory"
+    >
+      <li
+        v-show="expanded"
+        class="ml-8 w-max hover_text-blue hover_underline"
+        :data-index="index"
+      >
+        <NuxtLink :to="`/shop/${category}/${subcategory}`">
+          {{ subcategory }}
+        </NuxtLink>
+      </li>
+    </TransitionStaggered>
+  </ul>
 </template>
 
 <script lang="ts">

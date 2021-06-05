@@ -1,20 +1,27 @@
-<template lang="pug">
-div(class="flex space-x-4")
-  div(v-if="hasMultiple", class="flex flex-col space-y-2 flex-shrink-0")
-    img(
-      v-for="path in imagePaths",
-      :key="path",
-      class="w-36 h-36 border-black object-cover",
-      :class="isSelected(path) ? 'border-2' : 'border cursor-pointer hover_opacity-95'",
-      @click="select(path)",
-      :src="path"
-    )
+<template>
+  <div class="flex space-x-4">
+    <div v-if="hasMultiple" class="flex flex-col space-y-2 flex-shrink-0">
+      <img
+        v-for="path in imagePaths"
+        :key="path"
+        class="w-36 h-36 border-black object-cover"
+        :class="
+          isSelected(path)
+            ? 'border-2'
+            : 'border cursor-pointer hover_opacity-95'
+        "
+        :src="path"
+        @click="select(path)"
+      />
+    </div>
 
-  div(class="full-image")
-    img(
-      class="absolute inset-0 object-cover border border-black w-full h-full",
-      :src="selected"
-    )
+    <div class="full-image">
+      <img
+        class="absolute inset-0 object-cover border border-black w-full h-full"
+        :src="selected"
+      />
+    </div>
+  </div>
 </template>
 
 <script lang="ts">

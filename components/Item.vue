@@ -1,9 +1,14 @@
-<template lang="pug">
-div(class="flex flex-col")
-  NuxtLink(:to="link", class="w-max")
-    img(:src="image", class="mb-1 w-36 h-36 border border-black object-cover")
-  NuxtLink(:to="link", class="w-max") {{ name }}
-  NuxtLink(:to="link", class="w-max") ${{ price }}
+<template>
+  <div class="flex flex-col">
+    <NuxtLink class="w-max" :to="link">
+      <img
+        class="mb-1 w-36 h-36 border border-black object-cover"
+        :src="image"
+      />
+    </NuxtLink>
+    <NuxtLink class="w-max" :to="link">{{ name }}</NuxtLink>
+    <NuxtLink class="w-max" :to="link">${{ price }}</NuxtLink>
+  </div>
 </template>
 
 <script lang="ts">
