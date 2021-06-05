@@ -1,19 +1,21 @@
 <template lang="pug">
-ul.text-blue-dark
-  NuxtLink.group(:to="`/shop/${category}`")
-    FontAwesomeIcon.mr-2.transition-transform.duration-300.ease-out(
+ul(class="text-blue-dark")
+  NuxtLink(:to="`/shop/${category}`", class="group")
+    FontAwesomeIcon(
+      class="mr-2 transition-transform duration-300 ease-out",
       :class="{ 'text-transparent': !hasChildren }",
       :icon="['fas', 'caret-right']",
       :rotation="expanded ? '90' : undefined"
     )
-    span.group-hover_text-blue.group-hover_underline {{ category }}
+    span(class="group-hover_text-blue group-hover_underline") {{ category }}
   TransitionStaggered(
     v-for="(subcategory, index) in subcategories",
     :key="subcategory"
   )
-    li.ml-8.w-max.hover_text-blue.hover_underline(
+    li(
       v-show="expanded",
-      :data-index="index"
+      :data-index="index",
+      class="ml-8 w-max hover_text-blue hover_underline"
     ): NuxtLink(
       :to="`/shop/${category}/${subcategory}`"
     ) {{ subcategory }}

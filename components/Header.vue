@@ -1,19 +1,20 @@
 <template lang="pug">
-.flex.justify-between.items-center.py-2.px-6.text-white.bg-blue-light
-  NuxtLink(to="/"): h1.text-3xl.font-logo Gracefully Hooked
+div(class="flex justify-between items-center py-2 px-6 text-white bg-blue-light")
+  NuxtLink(to="/"): h1(class="text-3xl font-logo") Gracefully Hooked
 
-  .flex.items-center.space-x-6
-    .flex.items-center.space-x-2
+  div(class="flex items-center space-x-6")
+    div(class="flex items-center space-x-2")
       FontAwesomeIcon(:icon="['fas', 'search']")
-      input.px-2.text-black.rounded
+      input(class="px-2 text-black rounded")
 
-      .relative(ref="cartIcon")
+      div(class="relative", ref="cartIcon")
         component(:is="numItems ? 'NuxtLink' : 'div'", to="/checkout")
           FontAwesomeIcon(:icon="['fas', 'shopping-bag']", size="lg")
-          span.rounded-full.bg-blue-darker.text-white.absolute.-bottom-2.-right-4.font-semibold.text-xs.w-6.text-center(
-            v-if="numItems"
+          span(
+            v-if="numItems",
+            class="rounded-full bg-blue-darker text-white absolute -bottom-2 -right-4 font-semibold text-xs w-6 text-center"
           ) {{ numItems }}
-      .pl-1.pr-2.pt-2.pb-1(v-show="numItems", ref="cart"): Cart
+      div(v-show="numItems", class="pl-1 pr-2 pt-2 pb-1", ref="cart"): Cart
 </template>
 
 <script lang="ts">

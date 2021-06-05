@@ -1,19 +1,20 @@
 <template lang="pug">
-.flex.justify-center.items-center.space-x-4
-  .flex.space-x-4.w-full
-    .relative
-      NuxtLink(:to="link"): img.w-32.h-32.object-cover.border.border-black(
-        :src="image"
+div(class="flex justify-center items-center space-x-4")
+  div(class="flex space-x-4 w-full")
+    div(class="relative")
+      NuxtLink(:to="link"): img(
+        :src="image",
+        class="w-32 h-32 object-cover border border-black"
       )
-      .absolute.-top-3.-left-3.bg-turquoise.rounded-full.cursor-pointer.px-2
+      div(class="absolute -top-3 -left-3 bg-turquoise rounded-full cursor-pointer px-2")
         FontAwesomeIcon(
           :icon="['fas', 'times']",
           size="md",
           @click="removeItem"
         )
-    .flex.flex-col
-      NuxtLink.text-xl.font-semibold.w-max(:to="link") {{ item.name }}
-      NuxtLink.text-lg.w-max(:to="link") ${{ item.price }}
+    div(class="flex flex-col")
+      NuxtLink(:to="link", class="text-xl font-semibold w-max") {{ item.name }}
+      NuxtLink(:to="link", class="text-lg w-max") ${{ item.price }}
 </template>
 
 <script lang="ts">

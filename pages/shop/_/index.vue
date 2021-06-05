@@ -1,5 +1,5 @@
 <template lang="pug">
-.grid.grid-cols-4.gap-4(v-if="items.length")
+div(v-if="items.length", class="grid grid-cols-4 gap-4")
   Item(
     v-for="item in items",
     :key="item.slug",
@@ -8,7 +8,7 @@
     :price="item.price",
     :slug="item.slug"
   )
-p.text-lg(v-else) No Items
+p(v-else, class="text-lg") No Items
 </template>
 
 <script lang="ts">

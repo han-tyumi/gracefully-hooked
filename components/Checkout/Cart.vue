@@ -1,5 +1,5 @@
 <template lang="pug">
-ul.space-y-6
+ul(class="space-y-6")
   li(v-for="item in items")
     CheckoutItem(:item="item")
 </template>
@@ -12,7 +12,7 @@ export default defineComponent({
   props: {
     items: {
       type: Array as PropType<CartItem[]>,
-      default: [],
+      default: () => [],
     },
   },
 })

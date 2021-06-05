@@ -1,9 +1,9 @@
 <template lang="pug">
-.flex.py-8.px-10.space-x-14
-  SideBar.mt-3
+div(class="flex py-8 px-10 space-x-14")
+  SideBar(class="mt-3")
 
-  .flex.flex-col.space-y-14.w-full
-    h1.text-4xl.font-semibold.capitalize {{ title }}
+  div(class="flex flex-col space-y-14 w-full")
+    h1(class="text-4xl font-semibold capitalize") {{ title }}
     NuxtChild(v-bind="{ categories }")
 </template>
 

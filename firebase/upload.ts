@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 import fs from 'fs'
 import path from 'path'
 import Excel from 'exceljs'
@@ -73,16 +75,8 @@ async function main() {
       return
     }
 
-    const [
-      ,
-      name,
-      description,
-      category,
-      tags,
-      price,
-      size,
-      materials,
-    ] = row.values as ItemRowValues
+    const [, name, description, category, tags, price, size, materials] =
+      row.values as ItemRowValues
 
     const trimmedName = name.trim()
     let slug = trimmedName.toLowerCase().split(/\s/).join('-')

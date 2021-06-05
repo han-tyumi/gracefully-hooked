@@ -1,9 +1,9 @@
 <template lang="pug">
-.py-12.px-8
-  .flex.w-full.space-x-12(v-if="item")
+div(class="py-12 px-8")
+  div(v-if="item", class="flex w-full space-x-12")
     ImageViewer(class="w-7/12", :images="item.images")
     Details(class="w-5/12", :item="item")
-  h2.flex.w-full.justify-center.text-lg(v-else) Loading...
+  h2(v-else, class="flex w-full justify-center text-lg") Loading...
 </template>
 
 <script lang="ts">

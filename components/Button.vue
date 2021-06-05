@@ -1,5 +1,6 @@
 <template lang="pug">
-button.py-3.px-8.font-semibold.rounded-full(
+button(
+  class="py-3 px-8 font-semibold rounded-full",
   :class="disabled ? 'bg-gray cursor-default' : 'bg-turquoise hover_bg-turquoise-dark cursor-pointer'",
   @click="$emit('click')"
 ): slot

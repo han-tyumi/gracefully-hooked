@@ -1,22 +1,22 @@
 <template lang="pug">
-.flex.flex-col.space-y-10
-  .flex.flex-col
-    h1.text-3xl.font-semibold {{ item.name }}
-    h3.text-2xl ${{ item.price }}
+div(class="flex flex-col space-y-10")
+  div(class="flex flex-col")
+    h1(class="text-3xl font-semibold") {{ item.name }}
+    h3(class="text-2xl") ${{ item.price }}
 
-  .flex.flex-col
-    label.font-semibold Description
-    p.whitespace-pre-wrap {{ item.description }}
+  div(class="flex flex-col")
+    label(class="font-semibold") Description
+    p(class="whitespace-pre-wrap") {{ item.description }}
 
-  .flex.flex-col
-    label.font-semibold Size
-    p.whitespace-pre-wrap {{ item.size }}
+  div(class="flex flex-col")
+    label(class="font-semibold") Size
+    p(class="whitespace-pre-wrap") {{ item.size }}
 
-  .flex.flex-col
-    label.font-semibold Materials
+  div(class="flex flex-col")
+    label(class="font-semibold") Materials
     p {{ materials }}
 
-  Button.max-w-max(@click="addItem", :disabled="disabled") Add to Bag
+  Button(class="max-w-max", @click="addItem", :disabled="disabled") Add to Bag
 </template>
 
 <script lang="ts">

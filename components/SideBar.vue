@@ -1,11 +1,11 @@
 <template lang="pug">
-.space-y-4
-  NuxtLink.text-blue-dark.hover_text-blue.hover_underline(to="/shop/") Shop All
-  ul.space-y-2.w-52.capitalize
+div(class="space-y-4")
+  NuxtLink(to="/shop/", class="text-blue-dark hover_text-blue hover_underline") Shop All
+  ul(class="space-y-2 w-52 capitalize")
     SideBarItem(
       v-for="(subcategories, category) in categories",
       :key="category",
-      v-bind="{category, subcategories}"
+      v-bind="{ category, subcategories }"
     )
 </template>
 

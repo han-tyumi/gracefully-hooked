@@ -1,13 +1,13 @@
 <template lang="pug">
-.py-8
-  .flex.justify-center.space-x-16(v-show="items.length")
-    .flex.flex-col
+div(class="py-8")
+  div(v-show="items.length", class="flex justify-center space-x-16")
+    div(class="flex flex-col")
       CheckoutCart(:items="items")
-    .flex.flex-col.space-y-8
-      h1.text-xl.font-semibold Subtotal: ${{ total }}
+    div(class="flex flex-col space-y-8")
+      h1(class="text-xl font-semibold") Subtotal: ${{ total }}
       PayPalButtons(v-bind="{ createOrder, onApprove }")
-  .flex.flex-col.items-center.space-y-4(v-show="!items.length")
-    p.text-xl No Items In Your Bag
+  div(v-show="!items.length", class="flex flex-col items-center space-y-4")
+    p(class="text-xl") No Items In Your Bag
     NuxtLink(to="/shop/"): Button Shop All
 </template>
 

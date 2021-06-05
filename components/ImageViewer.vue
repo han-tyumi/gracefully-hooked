@@ -1,16 +1,18 @@
 <template lang="pug">
-.flex.space-x-4
-  .flex.flex-col.space-y-2.flex-shrink-0(v-if="hasMultiple")
-    img.w-36.h-36.border-black.object-cover(
+div(class="flex space-x-4")
+  div(v-if="hasMultiple", class="flex flex-col space-y-2 flex-shrink-0")
+    img(
       v-for="path in imagePaths",
       :key="path",
+      class="w-36 h-36 border-black object-cover",
       :class="isSelected(path) ? 'border-2' : 'border cursor-pointer hover_opacity-95'",
       @click="select(path)",
       :src="path"
     )
 
-  .full-image
-    img.absolute.inset-0.object-cover.border.border-black.w-full.h-full(
+  div(class="full-image")
+    img(
+      class="absolute inset-0 object-cover border border-black w-full h-full",
       :src="selected"
     )
 </template>
@@ -28,7 +30,7 @@ export default defineComponent({
   props: {
     images: {
       type: Array as PropType<string[]>,
-      default: [],
+      default: () => [],
     },
   },
 
