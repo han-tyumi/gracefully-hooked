@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-3 px-8 font-semibold rounded-full"
+    class="px-8 py-3 font-semibold rounded-full"
     :class="
       disabled
         ? 'bg-gray cursor-default'

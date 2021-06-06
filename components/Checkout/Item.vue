@@ -1,10 +1,10 @@
 <template>
-  <div class="flex justify-center items-center space-x-4">
-    <div class="flex space-x-4 w-full">
+  <div class="flex items-center justify-center space-x-4">
+    <div class="flex w-full space-x-4">
       <div class="relative">
         <NuxtLink :to="link">
           <img
-            class="w-32 h-32 object-cover border border-black"
+            class="w-32 h-32 border border-black object-cover"
             :src="image"
           />
         </NuxtLink>
@@ -12,12 +12,12 @@
         <div
           class="
             absolute
-            -top-3
             -left-3
+            -top-3
+            px-2
             bg-turquoise
             rounded-full
             cursor-pointer
-            px-2
           "
         >
           <FontAwesomeIcon
@@ -29,10 +29,10 @@
       </div>
 
       <div class="flex flex-col">
-        <NuxtLink class="text-xl font-semibold w-max" :to="link">
+        <NuxtLink class="w-max text-xl font-semibold" :to="link">
           {{ item.name }}
         </NuxtLink>
-        <NuxtLink class="text-lg w-max" :to="link">${{ item.price }}</NuxtLink>
+        <NuxtLink class="w-max text-lg" :to="link">${{ item.price }}</NuxtLink>
       </div>
     </div>
   </div>

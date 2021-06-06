@@ -1,8 +1,8 @@
 <template>
-  <div class="flex py-8 px-10 space-x-14">
+  <div class="flex px-10 py-8 space-x-14">
     <SideBar class="mt-3" />
 
-    <div class="flex flex-col space-y-14 w-full">
+    <div class="flex flex-col w-full space-y-14">
       <h1 class="text-4xl font-semibold capitalize">{{ title }}</h1>
       <NuxtChild v-bind="{ categories }" />
     </div>

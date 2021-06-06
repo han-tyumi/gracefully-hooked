@@ -1,5 +1,5 @@
 <template>
-  <div v-if="items.length" class="grid grid-cols-4 gap-4">
+  <div v-if="items.length" class="grid gap-4 grid-cols-4">
     <Item
       v-for="item in items"
       :key="item.slug"

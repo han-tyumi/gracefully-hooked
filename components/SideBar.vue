@@ -1,13 +1,13 @@
 <template>
   <div class="space-y-4">
     <NuxtLink
-      class="text-blue-dark hover_text-blue hover_underline"
+      class="hover_text-blue hover_underline text-blue-dark"
       to="/shop/"
     >
       Shop All
     </NuxtLink>
 
-    <ul class="space-y-2 w-52 capitalize">
+    <ul class="w-52 capitalize space-y-2">
       <SideBarItem
         v-for="(subcategories, category) in categories"
         :key="category"
@@ -32,6 +32,6 @@ export default defineComponent({
 
 <style scoped>
 .nuxt-link-exact-active {
-  @apply font-semibold text-blue-darker;
+  @apply text-blue-darker font-semibold;
 }
 </style>

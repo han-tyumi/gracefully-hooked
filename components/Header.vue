@@ -1,9 +1,9 @@
 <template>
   <div
-    class="flex justify-between items-center py-2 px-6 text-white bg-blue-light"
+    class="flex items-center justify-between px-6 py-2 text-white bg-blue-light"
   >
     <NuxtLink to="/">
-      <h1 class="text-3xl font-logo">Gracefully Hooked</h1>
+      <h1 class="font-logo text-3xl">Gracefully Hooked</h1>
     </NuxtLink>
 
     <div class="flex items-center space-x-6">
@@ -17,23 +17,21 @@
             <span
               v-if="numItems"
               class="
-                rounded-full
-                bg-blue-darker
-                text-white
                 absolute
                 -bottom-2
                 -right-4
-                font-semibold
-                text-xs
                 w-6
-                text-center
+                text-center text-white text-xs
+                font-semibold
+                bg-blue-darker
+                rounded-full
               "
             >
               {{ numItems }}
             </span>
           </component>
         </div>
-        <div v-show="numItems" ref="cart" class="pl-1 pr-2 pt-2 pb-1">
+        <div v-show="numItems" ref="cart" class="pb-1 pl-1 pr-2 pt-2">
           <Cart />
         </div>
       </div>

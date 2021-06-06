@@ -16,17 +16,5 @@
 
   "tailwindCSS.emmetCompletions": true,
 
-  "headwind.classRegex": {
-    "vue": [
-      {
-        "regex": "\\.([_a-zA-Z0-9-]+(?:\\.[_a-zA-Z0-9-]+)*)",
-        "separator": "\\.",
-        "replacement": "."
-      },
-      "\\bclass\\s*=\\s*[\\\"\\']([_a-zA-Z0-9\\s\\-\\:\\/]+)[\\\"\\']",
-      "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);"
-    ]
-  },
-
   "cSpell.words": ["nuxt", "nuxtjs", "paypal", "tailwindcss"]
 }

@@ -18,7 +18,7 @@
     >
       <li
         v-show="expanded"
-        class="ml-8 w-max hover_text-blue hover_underline"
+        class="hover_text-blue hover_underline ml-8 w-max"
         :data-index="index"
       >
         <NuxtLink :to="`/shop/${category}/${subcategory}`">
@@ -69,6 +69,6 @@ export default defineComponent({
 
 <style scoped>
 .nuxt-link-active {
-  @apply font-semibold text-blue-darker;
+  @apply text-blue-darker font-semibold;
 }
 </style>

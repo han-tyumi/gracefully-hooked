@@ -3,33 +3,32 @@
     <div class="flex flex-col items-center w-full">
       <div
         class="
-          w-full
-          h-20
-          bg-repeat-round bg-blue-light
           sm_h-24
           md_h-28
           lg_h-32
           xl_h-36
-          bg-flowers
+          w-full
+          h-20
+          bg-blue-light bg-flowers bg-repeat-round
         "
       >
         <div
           class="
-            absolute
-            top-4
-            right-4
-            px-1
-            space-x-2
-            text-3xl text-white
             md_text-4xl
+            absolute
+            right-4
+            top-4
+            px-1
+            text-white text-3xl
+            space-x-2
           "
         >
           <FontAwesomeIcon
-            class="px-1 text-6xl rounded-md bg-blue-darker"
+            class="px-1 text-6xl bg-blue-darker rounded-md"
             :icon="['fab', 'facebook-square']"
           />
           <FontAwesomeIcon
-            class="px-1 text-6xl rounded-md bg-blue-darker"
+            class="px-1 text-6xl bg-blue-darker rounded-md"
             :icon="['fab', 'instagram']"
           />
         </div>
@@ -37,16 +36,17 @@
 
       <h1
         class="
-          py-4
-          px-12
-          -mt-9
-          text-4xl text-center
-          bg-white
-          rounded-full
-          font-logo
           sm_px-24 sm_py-6 sm_-mt-12 sm_text-5xl
           md_px-32 md_py-8 md_-mt-16 md_text-6xl
           lg_text-7xl
+          -mt-9
+          px-12
+          py-4
+          text-center
+          font-logo
+          text-4xl
+          bg-white
+          rounded-full
         "
       >
         Gracefully Hooked
@@ -59,18 +59,19 @@
         items-center
         w-full
         h-full
-        bg-no-repeat bg-basket bg-x-5
+        bg-basket bg-x-5 bg-no-repeat
       "
     >
       <div
         class="
-          grid grid-cols-2
-          auto-cols-max
-          gap-x-4 gap-y-4
-          mt-4
-          w-max
           sm_text-lg
           md_text-xl md_mt-12 md_gap-x-12
+          grid
+          gap-x-4 gap-y-4
+          grid-cols-2
+          mt-4
+          w-max
+          auto-cols-max
         "
       >
         <NuxtLink class="col-span-2 mx-auto" to="/shop/">
@@ -85,7 +86,7 @@
           <Button class="w-full capitalize">{{ category }}</Button>
         </NuxtLink>
 
-        <Button class="col-span-2 mx-10 mt-5">Custom</Button>
+        <Button class="col-span-2 mt-5 mx-10">Custom</Button>
       </div>
     </div>
   </div>

@@ -6,7 +6,7 @@
       </li>
     </ul>
 
-    <h5 class="text-lg font-semibold text-right">Subtotal: ${{ total }}</h5>
+    <h5 class="text-right text-lg font-semibold">Subtotal: ${{ total }}</h5>
   </div>
 </template>
 

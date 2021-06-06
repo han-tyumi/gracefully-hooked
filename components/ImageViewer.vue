@@ -1,6 +1,6 @@
 <template>
   <div class="flex space-x-4">
-    <div v-if="hasMultiple" class="flex flex-col space-y-2 flex-shrink-0">
+    <div v-if="hasMultiple" class="flex flex-col flex-shrink-0 space-y-2">
       <img
         v-for="path in imagePaths"
         :key="path"
@@ -17,7 +17,7 @@
 
     <div class="full-image">
       <img
-        class="absolute inset-0 object-cover border border-black w-full h-full"
+        class="absolute inset-0 w-full h-full border border-black object-cover"
         :src="selected"
       />
     </div>
@@ -63,7 +63,7 @@ export default defineComponent({
 
 <style scoped>
 .full-image {
-  @apply inline-block w-full relative flex-grow;
+  @apply relative inline-block flex-grow w-full;
 }
 .full-image::after {
   @apply block;
