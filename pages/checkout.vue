@@ -1,17 +1,17 @@
 <template>
   <div class="py-8">
-    <div v-show="items.length" class="flex justify-center space-x-16">
+    <div v-show="items.length" class="flex space-x-16 justify-center">
       <div class="flex flex-col">
         <CheckoutCart :items="items" />
       </div>
 
       <div class="flex flex-col space-y-8">
-        <h1 class="text-xl font-semibold">Subtotal: ${{ total }}</h1>
+        <h1 class="font-semibold text-xl">Subtotal: ${{ total }}</h1>
         <PayPalButtons v-bind="{ createOrder, onApprove }" />
       </div>
     </div>
 
-    <div v-show="!items.length" class="flex flex-col items-center space-y-4">
+    <div v-show="!items.length" class="flex flex-col space-y-4 items-center">
       <p class="text-xl">No Items In Your Bag</p>
       <NuxtLink to="/shop/">
         <Button>Shop All</Button>

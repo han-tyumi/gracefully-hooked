@@ -1,16 +1,16 @@
 <template>
   <footer
     class="
-      fixed
+      bg-blue-light
+      flex
+      space-x-8
+      text-white text-sm
+      w-full
+      py-2
+      px-10
       bottom-0
       left-0
-      flex
-      px-10
-      py-2
-      w-full
-      text-white text-sm
-      bg-blue-light
-      space-x-8
+      fixed
     "
   >
     <a>Email</a>

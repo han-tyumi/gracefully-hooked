@@ -9,8 +9,6 @@ export default defineConfig({
     ],
   },
 
-  separator: '_',
-
   theme: {
     fontFamily: {
       sans: ['open-sans', 'sans-serif'],

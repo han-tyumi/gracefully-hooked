@@ -2,12 +2,12 @@
   <ul class="text-blue-dark">
     <NuxtLink class="group" :to="`/shop/${category}`">
       <FontAwesomeIcon
-        class="mr-2 transition-transform duration-300 ease-out"
+        class="mr-2 transition-transform ease-out duration-300"
         :class="{ 'text-transparent': !hasChildren }"
         :icon="['fas', 'caret-right']"
         :rotation="expanded ? '90' : undefined"
       />
-      <span class="group-hover_text-blue group-hover_underline">
+      <span class="group-hover:(text-blue underline)">
         {{ category }}
       </span>
     </NuxtLink>
@@ -18,7 +18,7 @@
     >
       <li
         v-show="expanded"
-        class="hover_text-blue hover_underline ml-8 w-max"
+        class="ml-8 w-max hover:(text-blue underline)"
         :data-index="index"
       >
         <NuxtLink :to="`/shop/${category}/${subcategory}`">

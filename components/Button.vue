@@ -1,10 +1,10 @@
 <template>
   <button
-    class="px-8 py-3 font-semibold rounded-full"
+    class="rounded-full font-semibold py-3 px-8"
     :class="
       disabled
         ? 'bg-gray cursor-default'
-        : 'bg-turquoise hover_bg-turquoise-dark cursor-pointer'
+        : 'bg-turquoise cursor-pointer hover:bg-turquoise-dark'
     "
     @click="$emit('click')"
   >

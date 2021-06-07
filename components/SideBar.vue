@@ -1,13 +1,10 @@
 <template>
   <div class="space-y-4">
-    <NuxtLink
-      class="hover_text-blue hover_underline text-blue-dark"
-      to="/shop/"
-    >
+    <NuxtLink class="text-blue-dark hover:(text-blue underline)" to="/shop/">
       Shop All
     </NuxtLink>
 
-    <ul class="w-52 capitalize space-y-2">
+    <ul class="space-y-2 w-52 capitalize">
       <SideBarItem
         v-for="(subcategories, category) in categories"
         :key="category"

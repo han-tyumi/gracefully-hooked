@@ -1,15 +1,15 @@
 <template>
-  <div class="flex items-center justify-between space-x-4">
-    <div class="flex items-center space-x-2">
+  <div class="flex space-x-4 items-center justify-between">
+    <div class="flex space-x-2 items-center">
       <NuxtLink :to="link">
-        <img class="w-12 h-12 border border-black object-cover" :src="image" />
+        <img class="border border-black object-cover h-12 w-12" :src="image" />
       </NuxtLink>
 
       <div class="flex flex-col">
-        <NuxtLink class="w-max font-semibold" :to="link">
+        <NuxtLink class="font-semibold w-max" :to="link">
           {{ item.name }}
         </NuxtLink>
-        <NuxtLink class="w-max text-sm" :to="link">${{ item.price }}</NuxtLink>
+        <NuxtLink class="text-sm w-max" :to="link">${{ item.price }}</NuxtLink>
       </div>
     </div>
 

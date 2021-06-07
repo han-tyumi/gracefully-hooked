@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col space-y-10">
     <div class="flex flex-col">
-      <h1 class="text-3xl font-semibold">{{ item.name }}</h1>
+      <h1 class="font-semibold text-3xl">{{ item.name }}</h1>
       <h3 class="text-2xl">${{ item.price }}</h3>
     </div>
 

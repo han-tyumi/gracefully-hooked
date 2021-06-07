@@ -1,34 +1,35 @@
 <template>
-  <div class="flex flex-col items-center min-h-screen">
-    <div class="flex flex-col items-center w-full">
+  <div class="flex flex-col min-h-screen items-center">
+    <div class="flex flex-col w-full items-center">
       <div
         class="
-          sm_h-24
-          md_h-28
-          lg_h-32
-          xl_h-36
-          w-full
-          h-20
           bg-blue-light bg-flowers bg-repeat-round
+          h-20
+          w-full
+          sm:h-24
+          md:h-28
+          lg:h-32
+          xl:h-36
         "
       >
         <div
           class="
-            md_text-4xl
-            absolute
-            right-4
-            top-4
-            px-1
-            text-white text-3xl
             space-x-2
+            text-white
+            px-1
+            top-4
+            right-4
+            text-3xl
+            absolute
+            md:text-4xl
           "
         >
           <FontAwesomeIcon
-            class="px-1 text-6xl bg-blue-darker rounded-md"
+            class="bg-blue-darker rounded-md px-1 text-6xl"
             :icon="['fab', 'facebook-square']"
           />
           <FontAwesomeIcon
-            class="px-1 text-6xl bg-blue-darker rounded-md"
+            class="bg-blue-darker rounded-md px-1 text-6xl"
             :icon="['fab', 'instagram']"
           />
         </div>
@@ -36,17 +37,17 @@
 
       <h1
         class="
-          sm_px-24 sm_py-6 sm_-mt-12 sm_text-5xl
-          md_px-32 md_py-8 md_-mt-16 md_text-6xl
-          lg_text-7xl
-          -mt-9
-          px-12
-          py-4
-          text-center
-          font-logo
-          text-4xl
           bg-white
           rounded-full
+          font-logo
+          -mt-9
+          text-center
+          py-4
+          px-12
+          text-4xl
+          sm:px-24 sm:py-6 sm:-mt-12 sm:text-5xl
+          md:px-32 md:py-8 md:-mt-16 md:text-6xl
+          lg:text-7xl
         "
       >
         Gracefully Hooked
@@ -55,26 +56,27 @@
 
     <div
       class="
+        bg-basket bg-no-repeat
         flex flex-col
-        items-center
-        w-full
         h-full
-        bg-basket bg-x-5 bg-no-repeat
+        bg-x-5
+        w-full
+        items-center
       "
     >
       <div
         class="
-          sm_text-lg
-          md_text-xl md_mt-12 md_gap-x-12
-          grid
-          gap-x-4 gap-y-4
-          grid-cols-2
           mt-4
           w-max
           auto-cols-max
+          grid
+          gap-x-4 gap-y-4
+          grid-cols-2
+          sm:text-lg
+          md:text-xl md:mt-12 md:gap-x-12
         "
       >
-        <NuxtLink class="col-span-2 mx-auto" to="/shop/">
+        <NuxtLink class="mx-auto col-span-2" to="/shop/">
           <Button>Shop All</Button>
         </NuxtLink>
 
@@ -86,7 +88,7 @@
           <Button class="w-full capitalize">{{ category }}</Button>
         </NuxtLink>
 
-        <Button class="col-span-2 mt-5 mx-10">Custom</Button>
+        <Button class="mx-10 mt-5 col-span-2">Custom</Button>
       </div>
     </div>
   </div>

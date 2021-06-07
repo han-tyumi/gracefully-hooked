@@ -2,7 +2,7 @@
   <div class="flex flex-col">
     <NuxtLink class="w-max" :to="link">
       <img
-        class="mb-1 w-36 h-36 border border-black object-cover"
+        class="border border-black object-cover h-36 mb-1 w-36"
         :src="image"
       />
     </NuxtLink>

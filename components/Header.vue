@@ -1,15 +1,15 @@
 <template>
   <div
-    class="flex items-center justify-between px-6 py-2 text-white bg-blue-light"
+    class="bg-blue-light flex text-white py-2 px-6 items-center justify-between"
   >
     <NuxtLink to="/">
       <h1 class="font-logo text-3xl">Gracefully Hooked</h1>
     </NuxtLink>
 
-    <div class="flex items-center space-x-6">
-      <div class="flex items-center space-x-2">
+    <div class="flex space-x-6 items-center">
+      <div class="flex space-x-2 items-center">
         <FontAwesomeIcon :icon="['fas', 'search']" />
-        <input class="px-2 text-black rounded" />
+        <input class="rounded text-black px-2" />
 
         <div ref="cartIcon" class="relative">
           <component :is="numItems ? 'NuxtLink' : 'div'" to="/checkout">
@@ -17,21 +17,21 @@
             <span
               v-if="numItems"
               class="
-                absolute
-                -bottom-2
-                -right-4
-                w-6
-                text-center text-white text-xs
-                font-semibold
                 bg-blue-darker
                 rounded-full
+                font-semibold
+                text-center text-white text-xs
+                -right-4
+                -bottom-2
+                w-6
+                absolute
               "
             >
               {{ numItems }}
             </span>
           </component>
         </div>
-        <div v-show="numItems" ref="cart" class="pb-1 pl-1 pr-2 pt-2">
+        <div v-show="numItems" ref="cart" class="pt-2 pr-2 pb-1 pl-1">
           <Cart />
         </div>
       </div>

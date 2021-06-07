@@ -1,14 +1,14 @@
 <template>
   <div class="flex space-x-4">
-    <div v-if="hasMultiple" class="flex flex-col flex-shrink-0 space-y-2">
+    <div v-if="hasMultiple" class="flex flex-col space-y-2 flex-shrink-0">
       <img
         v-for="path in imagePaths"
         :key="path"
-        class="w-36 h-36 border-black object-cover"
+        class="border-black object-cover h-36 w-36"
         :class="
           isSelected(path)
             ? 'border-2'
-            : 'border cursor-pointer hover_opacity-95'
+            : 'border cursor-pointer hover:opacity-95'
         "
         :src="path"
         @click="select(path)"
@@ -17,7 +17,7 @@
 
     <div class="full-image">
       <img
-        class="absolute inset-0 w-full h-full border border-black object-cover"
+        class="border border-black h-full object-cover w-full inset-0 absolute"
         :src="selected"
       />
     </div>

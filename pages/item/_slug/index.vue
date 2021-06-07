@@ -1,10 +1,10 @@
 <template>
-  <div class="px-8 py-12">
-    <div v-if="item" class="flex w-full space-x-12">
+  <div class="py-12 px-8">
+    <div v-if="item" class="flex space-x-12 w-full">
       <ImageViewer class="w-7/12" :images="item.images" />
       <Details class="w-5/12" :item="item" />
     </div>
-    <h2 v-else class="flex justify-center w-full text-lg">Loading...</h2>
+    <h2 v-else class="flex text-lg w-full justify-center">Loading...</h2>
   </div>
 </template>
 
