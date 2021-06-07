@@ -15,7 +15,8 @@
       "~/*": ["./*"],
       "@/*": ["./*"]
     },
-    "types": ["@nuxt/types", "./types", "@nuxtjs/firebase", "@types/node"]
+    "types": ["@nuxt/types", "@nuxtjs/firebase", "@types/node"]
   },
+  "include": ["**/*.vue", "**/*.ts", "**/*.d.ts"],
   "exclude": ["node_modules", ".nuxt", "dist"]
 }
