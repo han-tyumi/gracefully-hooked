@@ -14,7 +14,5 @@
   "scss.validate": false,
   "vetur.validation.style": false,
 
-  "tailwindCSS.emmetCompletions": true,
-
-  "cSpell.words": ["nuxt", "nuxtjs", "paypal", "tailwindcss"]
+  "cSpell.words": ["nuxt", "nuxtjs", "paypal", "windicss"]
 }

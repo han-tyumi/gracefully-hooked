@@ -1,23 +1,22 @@
-module.exports = {
-  purge: ['./components/**/*.vue', './layouts/**/*.vue', './pages/**/*.vue'],
-  darkMode: false, // or 'media' or 'class'
+import { defineConfig } from 'windicss/helpers'
+
+export default defineConfig({
+  extract: {
+    include: [
+      './components/**/*.vue',
+      './layouts/**/*.vue',
+      './pages/**/*.vue',
+    ],
+  },
+
   separator: '_',
+
   theme: {
-    extend: {
-      backgroundImage: {
-        flowers: "url('~/assets/img/flowers.svg')",
-        basket: "url('~/assets/img/basket.svg')",
-      },
-
-      backgroundPosition: {
-        'x-5': '5% 0%',
-      },
-
-      fontFamily: {
-        sans: ['open-sans', 'sans-serif'],
-        logo: ['pacifico', 'sans-serif'],
-      },
+    fontFamily: {
+      sans: ['open-sans', 'sans-serif'],
+      logo: ['pacifico', 'sans-serif'],
     },
+
     colors: {
       turquoise: {
         light: '#defff3',
@@ -47,9 +46,16 @@ module.exports = {
       gray: '#848484',
       transparent: 'transparent',
     },
+
+    extend: {
+      backgroundImage: {
+        flowers: "url('~/assets/img/flowers.svg')",
+        basket: "url('~/assets/img/basket.svg')",
+      },
+
+      backgroundPosition: {
+        'x-5': '5% 0%',
+      },
+    },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
-}
+})

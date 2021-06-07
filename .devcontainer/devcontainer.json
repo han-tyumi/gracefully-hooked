@@ -21,7 +21,7 @@
     "esbenp.prettier-vscode",
     "stylelint.vscode-stylelint",
     "octref.vetur",
-    "bradlc.vscode-tailwindcss"
+    "voorjaar.windicss-intellisense"
   ],
 
   // Use 'forwardPorts' to make a list of ports inside the container available locally.

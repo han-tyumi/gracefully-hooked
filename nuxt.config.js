@@ -22,6 +22,7 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/assets/css/main',
     '@fortawesome/fontawesome-svg-core/styles.css',
     'tippy.js/dist/tippy.css',
     'tippy.js/themes/light.css',
@@ -43,8 +44,8 @@ export default {
     '@nuxtjs/composition-api/module',
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
+    // https://windicss.org/integrations/nuxt.html
+    'nuxt-windicss',
     // https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
   ],
