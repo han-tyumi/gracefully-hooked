@@ -11519,10 +11519,10 @@ nuxt-vuex-localstorage@^1.3.0:
   dependencies:
     axios latest
 
-nuxt-windicss@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-1.1.0.tgz#22e13afad42dfe6e597a0914a674756d9f578d01"
-  integrity sha512-f4BfwmA0ua0abyVzUoqhCsNGJnwBmAl2y5TUS1yztOXCDmroT9ocLjWF6xPyeS/zW+pmu2IsGK9tnOD4S/bEWw==
+nuxt-windicss@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/nuxt-windicss/-/nuxt-windicss-1.1.1.tgz#3d63d1357b75c85b1fd9c7ff2ba13c21d36eeb81"
+  integrity sha512-+B79g1t2gKP91qL2sZL2QXZj9xM1oT+VdAW5RK+yrkPOST/qJbEHI7QQHL46iMp8LJddRQxvciuMNHzcvE0crg==
   dependencies:
     clear-module "^4.1.1"
     defu "^4.0.1"
@@ -11531,7 +11531,7 @@ nuxt-windicss@^1.1.0:
     semver "^7.3.5"
     upath "^2.0.1"
     vite-plugin-windicss "1.1.1"
-    windicss-webpack-plugin "1.2.0"
+    windicss-webpack-plugin "1.2.1"
 
 nuxt@^2.15.7:
   version "2.15.7"
@@ -13916,17 +13916,10 @@ semver@7.0.0:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.0.0.tgz#5f3ca35761e47e05b206c6daff2cf814f0316b8e"
   integrity sha512-+GB6zVA9LWh6zovYQLALHwv5rb2PHGlJi3lfiqIHxR0uuwCgefcOJc59v9fv1w8GbStwxuuqqAjI9NMAOOgq1A==
 
-semver@7.3.5, semver@^7.3.5:
+semver@7.3.5, semver@7.x, semver@^7.0.0, semver@^7.1.3, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
   integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
-  dependencies:
-    lru-cache "^6.0.0"
-
-semver@7.x, semver@^7.0.0, semver@^7.1.3, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4:
-  version "7.3.4"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.4.tgz#27aaa7d2e4ca76452f98d3add093a72c943edc97"
-  integrity sha512-tCfb2WLjqFAtXn4KEdxIhalnRtoKFN7nAwj0B3ZXCbQloV2tq5eDbcTmT68JJD3nRJq24/XgxtQKFIpQdtvmVw==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -16180,10 +16173,10 @@ widest-line@^3.1.0:
   dependencies:
     string-width "^4.0.0"
 
-windicss-webpack-plugin@1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/windicss-webpack-plugin/-/windicss-webpack-plugin-1.2.0.tgz#d24b278bc90d544c861d3d102a8b7a79f4958034"
-  integrity sha512-x0z++ph4j03zTLG7weF6AV0/gLRBi3r169N8Lgf2Q+yiLqF1IRkIWWc3vLVvFTR/f/iOwFfQxdWpka3IDGoklA==
+windicss-webpack-plugin@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/windicss-webpack-plugin/-/windicss-webpack-plugin-1.2.1.tgz#bae5a0112c5e548299cd2201bdee204f3c218b08"
+  integrity sha512-wvMjr7cD9adVdttizDGndTon6Jpm8efn0CWLagd6L2E1cQZ36jM7f5QbvsUh+N1mR/7aDfQqg55ndxc45L1+hA==
   dependencies:
     "@windicss/plugin-utils" "1.1.0"
     debug "^4.3.1"
