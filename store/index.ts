@@ -1,5 +1,6 @@
 import { useStore as baseUseStore } from '@nuxtjs/composition-api'
 import { State as CartState } from './cart'
+import { State as CacheState } from './cache'
 
 export interface State {
   active: string | null
@@ -17,6 +18,7 @@ export const mutations = {
 
 export interface RootState extends State {
   cart: CartState
+  cache: CacheState
 }
 
 export function useStore() {

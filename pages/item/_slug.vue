@@ -16,17 +16,20 @@ import {
   onUnmounted,
 } from '@nuxtjs/composition-api'
 import { Item } from '~/firebase/types'
+import { useStore } from '~/store'
 import { basicConverter } from '~/utils/firestore'
 
 export default defineComponent({
   setup() {
-    const { $fire, params } = useContext()
+    const { params, $fire } = useContext()
+    const store = useStore()
 
-    const item = ref<Item>()
+    const slug = params.value.slug
+    const item = ref<Item | undefined>(store.state.cache[slug])
 
     const unsubscribe = $fire.firestore
       .collection('items')
-      .doc(params.value.slug)
+      .doc(slug)
       .withConverter(basicConverter<Item>())
       .onSnapshot((snapshot) => {
         item.value = snapshot.data()

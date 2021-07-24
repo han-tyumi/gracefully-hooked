@@ -22,12 +22,14 @@ import {
 } from '@nuxtjs/composition-api'
 import { basicConverter } from '~/utils/firestore'
 import { Item } from '~/firebase/types'
+import { useStore } from '~/store'
 
 export default defineComponent({
   layout: 'shop',
 
   setup() {
-    const { params, store, $fire } = useContext()
+    const { params, $fire } = useContext()
+    const store = useStore()
 
     const categories = computed(
       () => params.value.pathMatch?.split('/').filter(Boolean) ?? []
@@ -49,7 +51,9 @@ export default defineComponent({
           .orderBy(value)
           .withConverter(basicConverter<Item>())
           .onSnapshot((snapshot) => {
-            items.value = snapshot.docs.map((d) => d.data())
+            const data = snapshot.docs.map((d) => d.data())
+            items.value = data
+            store.commit('cache/add', data)
           })
         onInvalidate(unsubscribe)
       },
