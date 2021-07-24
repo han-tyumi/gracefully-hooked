@@ -50,6 +50,15 @@ export default {
     '@nuxtjs/stylelint-module',
   ],
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/shop',
+        component: resolve(__dirname, 'pages/shop/_.vue'),
+      })
+    },
+  },
+
   purgeCSS: {
     whitelistPatterns: [/svg.*/, /fa.*/],
   },

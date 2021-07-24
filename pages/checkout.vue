@@ -13,7 +13,7 @@
 
     <div v-show="!items.length" class="flex flex-col space-y-4 items-center">
       <p class="text-xl">No Items In Your Bag</p>
-      <NuxtLink to="/shop/">
+      <NuxtLink to="/shop">
         <Button>Shop All</Button>
       </NuxtLink>
     </div>

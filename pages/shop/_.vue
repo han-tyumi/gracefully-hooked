@@ -24,11 +24,13 @@ import { basicConverter } from '~/utils/firestore'
 import { Item } from '~/firebase/types'
 
 export default defineComponent({
+  layout: 'shop',
+
   setup() {
     const { params, store, $fire } = useContext()
 
-    const categories = computed(() =>
-      params.value.pathMatch.split('/').filter(Boolean)
+    const categories = computed(
+      () => params.value.pathMatch?.split('/').filter(Boolean) ?? []
     )
 
     const items = ref<Item[]>([])

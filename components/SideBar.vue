@@ -1,6 +1,6 @@
 <template>
   <div class="space-y-4">
-    <NuxtLink class="text-blue-dark hover:(text-blue underline)" to="/shop/">
+    <NuxtLink class="text-blue-dark hover:(text-blue underline)" to="/shop">
       Shop All
     </NuxtLink>
 

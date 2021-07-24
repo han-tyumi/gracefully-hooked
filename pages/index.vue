@@ -76,7 +76,7 @@
           md:text-xl md:mt-12 md:gap-x-12
         "
       >
-        <NuxtLink class="mx-auto col-span-2" to="/shop/">
+        <NuxtLink class="mx-auto col-span-2" to="/shop">
           <Button>Shop All</Button>
         </NuxtLink>
 

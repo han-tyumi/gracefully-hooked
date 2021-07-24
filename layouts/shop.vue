@@ -1,11 +1,14 @@
 <template>
-  <div class="flex space-x-14 py-8 px-10">
-    <SideBar class="mt-3" />
-
-    <div class="flex flex-col space-y-14 w-full">
-      <h1 class="font-semibold text-4xl capitalize">{{ title }}</h1>
-      <NuxtChild v-bind="{ categories }" />
+  <div>
+    <Header />
+    <div class="flex space-x-14 py-8 px-10">
+      <SideBar class="mt-3" />
+      <div class="flex flex-col space-y-14 w-full">
+        <h1 class="font-semibold text-4xl capitalize">{{ title }}</h1>
+        <Nuxt />
+      </div>
     </div>
+    <Footer />
   </div>
 </template>
 
