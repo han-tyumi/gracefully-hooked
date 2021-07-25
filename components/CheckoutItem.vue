@@ -2,10 +2,10 @@
   <div class="flex space-x-4 items-center justify-center">
     <div class="flex space-x-4 w-full">
       <div class="relative">
-        <NuxtLink :to="link">
+        <NuxtLink :to="item.link">
           <img
             class="border border-black object-cover h-32 w-32"
-            :src="image"
+            :src="item.image"
           />
         </NuxtLink>
 
@@ -20,29 +20,26 @@
             absolute
           "
         >
-          <FontAwesomeIcon
-            :icon="['fas', 'times']"
-            size="md"
-            @click="removeItem"
-          />
+          <FontAwesomeIcon :icon="['fas', 'times']" @click="removeItem" />
         </div>
       </div>
 
       <div class="flex flex-col">
-        <NuxtLink class="font-semibold text-xl w-max" :to="link">
+        <NuxtLink class="font-semibold text-xl w-max" :to="item.link">
           {{ item.name }}
         </NuxtLink>
-        <NuxtLink class="text-lg w-max" :to="link">${{ item.price }}</NuxtLink>
+        <NuxtLink class="text-lg w-max" :to="item.link">
+          ${{ item.price }}
+        </NuxtLink>
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
 import { CartItem } from '~/store/cart'
 import { useStore } from '~/store'
-import { loadImage } from '~/utils/item'
 
 export default defineComponent({
   props: {
@@ -55,14 +52,9 @@ export default defineComponent({
   setup(props) {
     const store = useStore()
 
-    const image = computed(() => loadImage(props.item.image))
-    const link = computed(() => `/item/${props.item.slug}`)
-
     const removeItem = () => store.commit('cart/remove', props.item)
 
     return {
-      image,
-      link,
       removeItem,
     }
   },

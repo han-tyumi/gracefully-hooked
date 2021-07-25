@@ -1,48 +1,26 @@
 <template>
   <div class="flex flex-col">
-    <NuxtLink class="w-max" :to="link">
+    <NuxtLink class="w-max" :to="item.link">
       <img
         class="border border-black object-cover h-36 mb-1 w-36"
-        :src="image"
+        :src="item.images[0]"
       />
     </NuxtLink>
-    <NuxtLink class="w-max" :to="link">{{ name }}</NuxtLink>
-    <NuxtLink class="w-max" :to="link">${{ price }}</NuxtLink>
+    <NuxtLink class="w-max" :to="item.link">{{ item.name }}</NuxtLink>
+    <NuxtLink class="w-max" :to="item.link">${{ item.price }}</NuxtLink>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
-import { loadImage } from '~/utils/item'
+import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { Item } from '~/firebase/item'
 
 export default defineComponent({
   props: {
-    images: {
-      type: Array as PropType<string[]>,
+    item: {
+      type: Object as PropType<Item>,
       required: true,
     },
-    name: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    slug: {
-      type: String,
-      required: true,
-    },
-  },
-
-  setup(props) {
-    const image = computed(() => loadImage(props.images[0]))
-    const link = computed(() => `/item/${props.slug}`)
-
-    return {
-      image,
-      link,
-    }
   },
 })
 </script>

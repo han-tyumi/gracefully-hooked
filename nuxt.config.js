@@ -68,7 +68,7 @@ export default {
     [
       'nuxt-vuex-localstorage',
       {
-        localStorage: ['cart'],
+        localStorage: ['cart', 'cache'],
       },
     ],
     // https://firebase.nuxtjs.org

@@ -1,13 +1,6 @@
 <template>
   <div v-if="items.length" class="grid gap-4 grid-cols-4">
-    <Item
-      v-for="item in items"
-      :key="item.slug"
-      :images="item.images"
-      :name="item.name"
-      :price="item.price"
-      :slug="item.slug"
-    />
+    <Item v-for="item in items" :key="item.slug" :item="item" />
   </div>
   <p v-else class="text-lg">No Items</p>
 </template>
@@ -20,8 +13,7 @@ import {
   ref,
   watch,
 } from '@nuxtjs/composition-api'
-import { basicConverter } from '~/utils/firestore'
-import { Item } from '~/firebase/types'
+import { Item, itemConverter } from '~/firebase/item'
 import { useStore } from '~/store'
 
 export default defineComponent({
@@ -49,7 +41,7 @@ export default defineComponent({
         const unsubscribe = $fire.firestore
           .collection('items')
           .orderBy(value)
-          .withConverter(basicConverter<Item>())
+          .withConverter(itemConverter)
           .onSnapshot((snapshot) => {
             const data = snapshot.docs.map((d) => d.data())
             items.value = data

@@ -2,16 +2,16 @@
   <div class="flex space-x-4">
     <div v-if="hasMultiple" class="flex flex-col space-y-2 flex-shrink-0">
       <img
-        v-for="path in imagePaths"
-        :key="path"
+        v-for="image in images"
+        :key="image"
         class="border-black object-cover h-36 w-36"
         :class="
-          isSelected(path)
+          isSelected(image)
             ? 'border-2'
             : 'border cursor-pointer hover:opacity-95'
         "
-        :src="path"
-        @click="select(path)"
+        :src="image"
+        @click="select(image)"
       />
     </div>
 
@@ -31,7 +31,6 @@ import {
   computed,
   ref,
 } from '@nuxtjs/composition-api'
-import { loadImage } from '~/utils/item'
 
 export default defineComponent({
   props: {
@@ -42,16 +41,15 @@ export default defineComponent({
   },
 
   setup(props) {
-    const imagePaths = computed(() => props.images.map(loadImage))
-    const selected = ref(imagePaths.value[0])
-    const hasMultiple = computed(() => imagePaths.value.length > 1)
+    const { images } = props
+    const selected = ref(images[0])
+    const hasMultiple = computed(() => images.length > 1)
 
-    const isSelected = (path: string) => path === selected.value
+    const isSelected = (image: string) => image === selected.value
 
-    const select = (path: string) => (selected.value = path)
+    const select = (image: string) => (selected.value = image)
 
     return {
-      imagePaths,
       selected,
       hasMultiple,
       isSelected,

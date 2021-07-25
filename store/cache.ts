@@ -1,4 +1,4 @@
-import { Item } from '~/firebase/types'
+import { Item } from '~/firebase/item'
 
 export interface State {
   [slug: string]: Item

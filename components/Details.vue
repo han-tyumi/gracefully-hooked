@@ -28,9 +28,8 @@
 
 <script lang="ts">
 import { defineComponent, PropType, computed } from '@nuxtjs/composition-api'
-import { Item } from '~/firebase/types'
+import { Item } from '~/firebase/item'
 import { useStore } from '~/store'
-import { CartItem } from '~/store/cart'
 
 export default defineComponent({
   props: {
@@ -41,22 +40,17 @@ export default defineComponent({
   },
 
   setup(props) {
+    const { item } = props
+
     const store = useStore()
 
     const disabled = computed(() =>
-      Object.keys(store.state.cart.items).includes(props.item.slug)
+      Object.keys(store.state.cart.items).includes(item.slug)
     )
 
-    const addItem = () =>
-      !disabled.value &&
-      store.commit('cart/add', {
-        slug: props.item.slug,
-        name: props.item.name,
-        image: props.item.images[0],
-        price: props.item.price,
-      } as CartItem)
+    const addItem = () => !disabled.value && store.commit('cart/add', item)
 
-    const materials = computed(() => props.item.materials.join(', '))
+    const materials = computed(() => item.materials.join(', '))
 
     return {
       disabled,

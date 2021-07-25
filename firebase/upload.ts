@@ -5,7 +5,7 @@ import path from 'path'
 import Excel from 'exceljs'
 import admin from 'firebase-admin'
 
-import { Category, Item } from './types/item'
+import { Category, FSItem } from './item'
 
 type ItemRowValues = [
   _: undefined,
@@ -115,7 +115,7 @@ async function main() {
     }
 
     // sanitize inputs
-    const item: Item = {
+    const item: FSItem = {
       name: trimmedName,
       slug,
       description: description && description.trim(),

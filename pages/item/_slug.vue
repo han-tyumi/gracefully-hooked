@@ -15,9 +15,8 @@ import {
   ref,
   onUnmounted,
 } from '@nuxtjs/composition-api'
-import { Item } from '~/firebase/types'
+import { Item, itemConverter } from '~/firebase/item'
 import { useStore } from '~/store'
-import { basicConverter } from '~/utils/firestore'
 
 export default defineComponent({
   setup() {
@@ -30,7 +29,7 @@ export default defineComponent({
     const unsubscribe = $fire.firestore
       .collection('items')
       .doc(slug)
-      .withConverter(basicConverter<Item>())
+      .withConverter(itemConverter)
       .onSnapshot((snapshot) => {
         item.value = snapshot.data()
       })
