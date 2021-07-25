@@ -7,9 +7,9 @@
     </NuxtLink>
 
     <div class="flex space-x-6 items-center">
-      <div class="flex space-x-2 items-center">
+      <div class="flex items-center">
         <FontAwesomeIcon :icon="['fas', 'search']" />
-        <input class="rounded text-black px-2" />
+        <input class="rounded text-black px-2 mx-2" />
 
         <div ref="cartIcon" class="relative">
           <component :is="numItems ? 'NuxtLink' : 'div'" to="/checkout">
@@ -55,9 +55,7 @@ export default defineComponent({
   setup() {
     const store = useStore()
 
-    const numItems = computed(
-      () => Object.values(store.state.cart.items).length
-    )
+    const numItems = computed(() => Object.keys(store.state.cart.items).length)
 
     const cartIcon = ref<HTMLElement>()
     const cart = ref<HTMLElement>()
