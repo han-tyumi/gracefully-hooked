@@ -15,7 +15,7 @@ type ItemRowValues = [
   tags: string | undefined,
   price: string,
   size: string | undefined,
-  materials: string
+  materials: string | undefined
 ]
 
 /** Directory to store item images. */
@@ -118,26 +118,23 @@ async function main() {
     const item: FSItem = {
       name: trimmedName,
       slug,
-      description: description && description.trim(),
+      description: description?.trim(),
       category: getCategory(category),
       tags: tags
-        ? tags
-            .split(',')
-            .map((t) => t.trim())
-            .filter(Boolean)
-        : undefined,
-      price: parseInt(price, 10),
-      size:
-        size &&
-        size
-          .split(',')
-          .map((s) => s.trim())
-          .filter(Boolean)
-          .join('\n'),
-      materials: materials
-        .split(',')
-        .map((m) => m.trim())
+        ?.split(',')
+        .map((t) => t.trim())
         .filter(Boolean),
+      price: parseInt(price, 10),
+      size: size
+        ?.split(',')
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .join('\n'),
+      materials:
+        materials
+          ?.split(',')
+          .map((m) => m.trim())
+          .filter(Boolean) || [],
       images: imageNames,
     }
 
