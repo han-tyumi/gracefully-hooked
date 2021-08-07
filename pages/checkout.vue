@@ -21,19 +21,28 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
 import { defineComponent, computed } from '@nuxtjs/composition-api'
+
 import { useStore } from '~/store'
+import { createOrder, CurrencyCode, onApprove } from '~/types/paypal'
+
+const PayPalButtons = paypal.Buttons.driver('vue', Vue)
 
 export default defineComponent({
+  components: {
+    PayPalButtons,
+  },
+
   setup() {
     const store = useStore()
 
     const items = computed(() => Object.values(store.state.cart.items))
     const total = computed(() => store.state.cart.total)
 
-    const createOrder: PayPal.createOrder = (_, actions) => {
+    const createOrder: createOrder = (_, actions) => {
       // eslint-disable-next-line camelcase
-      const currency_code = PayPal.CurrencyCode.USD
+      const currency_code = CurrencyCode.USD
 
       return actions.order.create({
         purchase_units: [
@@ -66,7 +75,7 @@ export default defineComponent({
       })
     }
 
-    const onApprove: PayPal.onApprove = async (_, actions) => {
+    const onApprove: onApprove = async (_, actions) => {
       const details = await actions.order.capture()
       console.log(details)
     }

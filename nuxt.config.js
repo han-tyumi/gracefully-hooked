@@ -29,11 +29,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/fontawesome.ts',
-    '~/plugins/velocity.client.ts',
-    '~/plugins/paypal.client.ts',
-  ],
+  plugins: ['~/plugins/fontawesome.ts', '~/plugins/velocity.client.ts'],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
