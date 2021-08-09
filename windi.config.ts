@@ -1,4 +1,5 @@
 import { defineConfig } from 'windicss/helpers'
+import colors from 'windicss/colors'
 
 export default defineConfig({
   extract: {
@@ -43,6 +44,7 @@ export default defineConfig({
       black: '#000',
       gray: '#848484',
       transparent: 'transparent',
+      red: colors.red,
     },
 
     extend: {

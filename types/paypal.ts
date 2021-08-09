@@ -289,3 +289,11 @@ export interface OnApproveActions {
 }
 
 export type onApprove = (data: any, actions: OnApproveActions) => void
+
+export interface OnCancelData {
+  orderId: string
+}
+
+export type onCancel = (data: OnCancelData) => void
+
+export type onError = (err: any) => void

@@ -13,11 +13,6 @@ export default {
       { hid: 'description', name: 'description', content: '' },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [
-      {
-        src: 'https://www.paypal.com/sdk/js?client-id=AeMnTTxCiQymVnHQkFSnsNJVSs7rXMmHh5hOUBvuJI6otKeibTnFZ-jnIcgXZo9_r9NUlv51h7hC9CGz',
-      },
-    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
