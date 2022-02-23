@@ -55,7 +55,7 @@
     "husky": "^7.0.0",
     "jest": "^27.0.6",
     "lint-staged": "^11.1.2",
-    "nuxt-windicss": "^1.2.2",
+    "nuxt-windicss": "^2.2.6",
     "prettier": "^2.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
